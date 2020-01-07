@@ -3,22 +3,21 @@
     <head>
         <title>Programming Blog - Main</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link id="pagestyle" rel="stylesheet" href="dark.css" />
-		<link rel="shortcut icon" href="logo16x16e.png" type="image/x-icon">
+        <link id="pagestyle" rel="stylesheet" href="css/dark.css" />
+		<link rel="shortcut icon" href="images/logo16x16e.png" type="image/x-icon">
     </head>
     <body class="main">
         <header>
 		<div class="logo_header">
 			<p>
-			<input type="image" src="logo.png" class="logo" alt="Logo" >
-			<!-- <img src="logo.png" class="logo" alt="Logo" width="10%" height="auto" align="bottom"> -->
+			<input type="image" src="images/logo.png" class="logo" alt="Logo" >
 			<h1>Programming Blog </h1>
 			</p>
 			<button class="change_color" onclick="buttonCheckTheme()">Change color</button>
 		</div>
 		<br>
 		<hr>
-           <div id="menu">
+           <div class="menu">
 		   <nav>
                 <ul>
                     <li><a href="index.html">Main</a></li>
@@ -48,27 +47,22 @@
 
 		function buttonCheckTheme(){
 			if(localStorage.pagestyle === 'dark.css'){
-				swapStyleSheet('light.css');
+				swapStyleSheet('css/light.css');
 				localStorage.pagestyle = 'light.css';
 			}else{
-				swapStyleSheet('dark.css');
+				swapStyleSheet('css/dark.css');
 				localStorage.pagestyle = 'dark.css';
 			}
 		}
 
 		window.onload = function checkThemeOnLoad(){
 			if(localStorage.pagestyle === 'dark.css'){
-				swapStyleSheet('dark.css');
+				swapStyleSheet('css/dark.css');
 				localStorage.pagestyle = 'dark.css';
 			}else{
-				swapStyleSheet('light.css');
+				swapStyleSheet('css/light.css');
 				localStorage.pagestyle = 'light.css';
 			}
-		};
-		function topFunction() {
-		  document.body.scrollTop = 0; // For Safari
-		  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-		}
-		</script>
+}</script>
 	</footer>
 </html>

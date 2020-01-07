@@ -5,31 +5,9 @@ body{
   background-color: #111122; /* black */
   font-size: 22px;
   margin: 0;
-}
-
-.main{
-	overflow: hidden; /* Hide scrollbars */
-}
-
-.logo_header input{
-	float: left;
-	width: 10%;
-	height: auto;
-}
-
-.logo_header h1{
-	position: relative;
-	top: 100px;
-	left: 10px;
-}
-.logo_header{
-	padding-bottom: 100px;
-}
-
-/* https://www.w3schools.com/css/css3_variables.asp */
-
-body {
-  -webkit-animation: bgcolorchange 4s infinite; /* Chrome, Safari, Opera */ 
+  color: white;
+  
+-webkit-animation: bgcolorchange 4s infinite; /* Chrome, Safari, Opera */ 
   animation: 30s infinite bgcolorchange;
 }
 @keyframes bgcolorchange {
@@ -53,12 +31,33 @@ body {
       10%   {background: #111122;}
       50%  {background: black;}
       100% {background: #111122;}
- }
-
-p{
-	color: white;
 }
-h1{
+
+.main{
+	overflow: hidden; /* Hide scrollbars */
+}
+
+.logo_header input{
+	position: relative;
+	left: 20px;
+	float: left;
+	width: 7%;
+	height: auto;
+}
+
+.logo_header h1{
+	position: relative;
+	top: 50px;
+	left: 20px;
+}
+.logo_header{
+	
+	padding-bottom: 30px;
+}
+
+/* https://www.w3schools.com/css/css3_variables.asp */
+
+h1, h2, h3, h4, h5, h6, h7{
 	color: white;
 }
 
@@ -89,17 +88,35 @@ nav li a:hover {
     background-color: #c21525;
 }
 
+a{
+	color: green;
+}
+
 hr{
 	border: 4px solid lightgreen;
 }
-hr.vertical{
-	/*-webkit-transform:rotate(90deg);*/
-	transform: rotate(90deg);
+/* hr.vertical{ */
+	/* /*-webkit-transform:rotate(90deg);*/
+	/* transform: rotate(90deg); */
+/* } */
+
+/* .vl{ */
+	/* border-left: 6px solid lightgreen; */
+	/* height: 100px; */
+/* } */
+
+.blogmain{
+  	text-align: left;
+  	margin: 0px 5% 10px;
+	font-size: 20px;
 }
 
-.vl{
-	border-left: 6px solid lightgreen;
-	height: 100px;
+.topbutton {
+text-align:center;
+position:fixed;
+bottom:85px;
+right:50px;
+cursor:pointer;
 }
 
 .change_color{
@@ -116,9 +133,18 @@ hr.vertical{
 	cursor: pointer;
 }
 
+.tip{
+    font-size: large;
+    width: 50%;
+    height: auto;
+    border: 1px solid red;
+    margin-left: 60px;
+    padding: 10px;
+}
+      
+
 /*https://medium.com/@dear_trudence/how-to-draw-vertical-and-diagonal-lines-with-html-and-css-9e8d7d9c59b2
 https://www.w3schools.com/howto/howto_css_style_hr.asp*/
-
 
 /* Roboto */
 /* cyrillic-ext */
