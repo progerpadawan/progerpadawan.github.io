@@ -1,150 +1,86 @@
 <!DOCTYPE html>
-<html type="en">
+<html type="ru">
     <head>
-        <title>Programming Blog - Blog</title>
+        <title>Блог программиста - Блог</title>
+		
+		<meta property="og:title" content="Блог программиста!">
+        <meta property="og:site_name" content="Progerpadawan">
+        <meta property="og:url" content="https://progerpadawan.github.io/articles/rus/Blog0_Hi.html">
+        <meta property="og:description" content="№ 0 - Привет">
+        <meta property="og:image" content="../../images/logo.png">
+		
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="../list.css" /><!--dont forget _ -->
-		<link rel="shortcut icon" href="../logo16x16e.png" type="image/x-icon">
-		<h1>Programming Blog</h1>
-		<img src="../logo.png" class="logo" alt="Logo">
-    	<a href="mailto:max.m.zelensky@gmail.com"><img src ="../mail.png" class="mail" alt="mail"></a>
-
+        <link id="pagestyle" rel="stylesheet" href="../../css/dark.css" />
+		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
     </head>
-    <body>
+    <body class="main">
         <header>
-            <nav>
+		<div class="logo_header">
+			<p>
+			<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+			<h1>Блог программиста</h1>
+			</p>
+			<button class="change_color" onclick="buttonCheckTheme()">Сменить фон</button>
+		</div>
+		<br>
+		<hr>
+           <div class="menu">
+		   <nav>
                 <ul>
-                    <li><a href="../index.html">Main</a></li>
-                    <li><a href="../blog.html">Blog</a></li>
-                    <li><a href="../aboutme.html">About Me</a></li>
+                    <li><a href="../../rus/index.html">Главная</a></li>
+                    <li><a href="../../rus/blog.html">Блог</a></li>
+                    <li><a href="../../rus/aboutme.html">Обо мне</a></li>
                 </ul>
             </nav>
+			</div>
+		<hr>
         </header>
         <main>
     <div class="blogmain">
 
-      <h2>Article 0 - Hi</h2>
-
-    Hello everybody! <br>
-    I'm Maxim Zelensky <br>
-    and today is 2018 I have started my new programming blog.<br>
-    About me, I`m a student of Technical Hight Schule Zurich in Switzerland, and I'm new in programming world.<br>
-    Here I would write all that I have learned about this, new for me exciting world.<br>
-    I hope it would help all people, which are not that professional yet or who just looking for answers.<br>
-    I want repeat, that I'm not a professional programmer yet and sadly my English doesn't perfect too. (<br>
-    I suppose we would have fun,<br>
-    get luck) and lets go!<br>
+      <h2>Статья 0 - Привет</h2>
+	
+    Всем привет! <br>
+    Меня зовут Максим Зеленский<br>
+    и сегодня в 2018ом году я начал свой блог по программированию.<br>
+	<br>
+	О себе:<br>
+    Я студент Высшей Технической школы Цюриха(TBZ) в Швейцарии, и я новичок в мире программирования.<br>
+    Здесь я буду писать все, что узнал об этом, новом для меня,ы захватывающем мире.<br>
+    Надеюсь, что это поможет всем, кто еще не настолько профессионален или просто ищут ответы и что-нибудь интересненькое.<br>
+    Надеюсь, нам будет весело,<br>
+    удачи) и поехали!<br>
     
-        <p><a href="../blog.html">Back</a></p>
-		<p><a href="../index.html">Back to start</a></p>
+        <p><a href="../../rus/blog.html">Назад</a></p>
+		<p><a href="../../rus/index.html">К началу</a></p>
 </div>
         </main>
     </body>
     <footer>
+<script>
+		function swapStyleSheet(sheet){
+			document.getElementById('pagestyle').setAttribute('href', sheet);
+			localStorage.pagestyle = sheet;
+		}
 
-      <script>
-      window.onload = function() {
-      startTime();
-      };
-      </script>
+		function buttonCheckTheme(){
+			if(localStorage.pagestyle === 'dark.css'){
+				swapStyleSheet('../../css/light.css');
+				localStorage.pagestyle = 'light.css';
+			}else{
+				swapStyleSheet('../../css/dark.css');
+				localStorage.pagestyle = 'dark.css';
+			}
+		}
 
-      <div class="nixcont">
-
-          <div class="nixpair">
-
-            <div class="nixbg">
-              <div id="nix_h1_0" class="nix">0</div>
-              <div id="nix_h1_1" class="nix">1</div>
-              <div id="nix_h1_2" class="nix">2</div>
-              <div id="nix_h1_3" class="nix">3</div>
-              <div id="nix_h1_4" class="nix">4</div>
-              <div id="nix_h1_5" class="nix">5</div>
-              <div id="nix_h1_6" class="nix">6</div>
-              <div id="nix_h1_7" class="nix">7</div>
-              <div id="nix_h1_8" class="nix">8</div>
-              <div id="nix_h1_9" class="nix">9</div>
-            </div>
-
-            <div class="nixbg">
-              <div id="nix_h2_0" class="nix">0</div>
-              <div id="nix_h2_1" class="nix">1</div>
-              <div id="nix_h2_2" class="nix">2</div>
-              <div id="nix_h2_3" class="nix">3</div>
-              <div id="nix_h2_4" class="nix">4</div>
-              <div id="nix_h2_5" class="nix">5</div>
-              <div id="nix_h2_6" class="nix">6</div>
-              <div id="nix_h2_7" class="nix">7</div>
-              <div id="nix_h2_8" class="nix">8</div>
-              <div id="nix_h2_9" class="nix">9</div>
-            </div>
-
-          </div>
-
-
-          <div class="nixpair">
-
-            <div class="nixbg">
-              <div id="nix_m1_0" class="nix">0</div>
-              <div id="nix_m1_1" class="nix">1</div>
-              <div id="nix_m1_2" class="nix">2</div>
-              <div id="nix_m1_3" class="nix">3</div>
-              <div id="nix_m1_4" class="nix">4</div>
-              <div id="nix_m1_5" class="nix">5</div>
-              <div id="nix_m1_6" class="nix">6</div>
-              <div id="nix_m1_7" class="nix">7</div>
-              <div id="nix_m1_8" class="nix">8</div>
-              <div id="nix_m1_9" class="nix">9</div>
-            </div>
-
-            <div class="nixbg">
-              <div id="nix_m2_0" class="nix">0</div>
-              <div id="nix_m2_1" class="nix">1</div>
-              <div id="nix_m2_2" class="nix">2</div>
-              <div id="nix_m2_3" class="nix">3</div>
-              <div id="nix_m2_4" class="nix">4</div>
-              <div id="nix_m2_5" class="nix">5</div>
-              <div id="nix_m2_6" class="nix">6</div>
-              <div id="nix_m2_7" class="nix">7</div>
-              <div id="nix_m2_8" class="nix">8</div>
-              <div id="nix_m2_9" class="nix">9</div>
-            </div>
-
-          </div>
-
-
-          <div class="nixpair">
-
-            <div class="nixbg">
-              <div id="nix_s1_0" class="nix">0</div>
-              <div id="nix_s1_1" class="nix">1</div>
-              <div id="nix_s1_2" class="nix">2</div>
-              <div id="nix_s1_3" class="nix">3</div>
-              <div id="nix_s1_4" class="nix">4</div>
-              <div id="nix_s1_5" class="nix">5</div>
-              <div id="nix_s1_6" class="nix">6</div>
-              <div id="nix_s1_7" class="nix">7</div>
-              <div id="nix_s1_8" class="nix">8</div>
-              <div id="nix_s1_9" class="nix">9</div>
-            </div>
-
-            <div class="nixbg">
-              <div id="nix_s2_0" class="nix">0</div>
-              <div id="nix_s2_1" class="nix">1</div>
-              <div id="nix_s2_2" class="nix">2</div>
-              <div id="nix_s2_3" class="nix">3</div>
-              <div id="nix_s2_4" class="nix">4</div>
-              <div id="nix_s2_5" class="nix">5</div>
-              <div id="nix_s2_6" class="nix">6</div>
-              <div id="nix_s2_7" class="nix">7</div>
-              <div id="nix_s2_8" class="nix">8</div>
-              <div id="nix_s2_9" class="nix">9</div>
-            </div>
-
-          </div>
-
-        </div>
-
-         <script src="../index.js"></script>
-
+		window.onload = function checkThemeOnLoad(){
+			if(localStorage.pagestyle === 'dark.css'){
+				swapStyleSheet('../../css/dark.css');
+				localStorage.pagestyle = 'dark.css';
+			}else{
+				swapStyleSheet('../../css/light.css');
+				localStorage.pagestyle = 'light.css';
+			}
+}</script>
     </footer>
 </html>
