@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html type="ru">
+    <title>Блог программиста - Блог</title>
+		
+		<meta property="og:title" content="Блог программиста!">
+        <meta property="og:site_name" content="Progerpadawan">
+        <meta property="og:url" content="https://progerpadawan.github.io/articles/rus/Blog1_Html.html">
+        <meta property="og:description" content="№ 1 - создание веб страницы">
+        <meta property="og:image" content="../../images/logo.png">
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link id="pagestyle" rel="stylesheet" href="../../css/dark.css" />
+		<link rel="stylesheet" href="../../css/atom-one-dark.css">
+		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+    </head>
+    <body class="main">
+        <header>
+		<div class="logo_header">
+			<p>
+			<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+			<h1>Блог программиста</h1>
+			</p>
+			<button class="change_color" onclick="buttonCheckTheme()">Сменить фон</button>
+		</div>
+		<br>
+		<hr>
+           <div class="menu">
+		   <nav>
+                <ul>
+                    <li><a href="../../rus/index.html">Главная</a></li>
+                    <li><a href="../../rus/blog.html">Блог</a></li>
+                    <li><a href="../../rus/aboutme.html">Обо мне</a></li>
+                </ul>
+            </nav>
+			</div>
+		<hr>
+        </header>
+        <main>
+    <div class="blogmain">
+
+    <h2>Статья - 02<br>
+    "Настройка VLAN со сетевым коммутатором(свитч)"</h2>
+<br>
+	<div class="date">
+		(16.02.2019)
+	</div>
+    Салом Аргонавты!<br>
+<br>
+    Сегодня я расскажу вам, как настроить <a href="https://ru.wikipedia.org/wiki/VLAN" target="_blank">VLAN</a> (виртуальную локальную сеть) на сетевом коммутаторе.<br>
+    Буду задействованны два коммутатора <a href="../../images/2/hp.jpg" target="_blank" >HewlettPackardEnterprise OfficeConnect 1820 (J9981A)</a> и один <a href="../../images/2/zyxel1.jpg" target="_blank">ZyXel GS-2024</a> .<br>
+<br>
+<br>
+    <strong>Предыстория:</strong><br>
+<br>
+    Меня попросили настроить персональное соединение VLAN в офисе для телефонной линии.<br>
+    До этого мне не приходилось быть в шкуре системного администратора и заниматься свитчами.<br>
+    For this project I have spent on these 3-4 days!<br>
+	На этот проект мне понадобилось 3-4 дня!<br>
+	И это были сложные дни для меня.<br>
+	Один раз мне пришлось находиться восемь часов в серверной комнате, и это было ужасно!<br>
+	Первый час все было нормально, но последующие, я был как в холодильнике.<br>
+	И это, не считая проблем с версиями свитчей и браузеров, они должны подходить по версиям,<br>
+	иначе просто не получится взаимодействовать со свитчем через веб-интерфейс.<br>
+    А также, по моей неопытности, тестируя возможности коммутатора, я пару раз выключил<br>
+	интернет во всем офисе.)<br>
+<br>
+    Идея была в том, чтобы у нас было два коммутатора, которые изолировали бы сеть vlan2.<br>
+    Основной vlan(не для телефонной линии) по умолчанию имеет имя vlan1.<br>
+<br>
+    <input class="blog_img" type="image" src="../../images/2/Plan.jpg" onclick="window.open('../../images/2/Plan.jpg')" height=500 width=auto/><br>
+<br>
+    <input type="image" src="../../images/2/switches.jpg" onclick="window.open('../../images/2/switches.jpg')" height=auto width=50%/><br>
+<br>
+    Порты 1 и 2 на коммутаторах должны бы ли быть зарезервированы для vlan2, все остальные остаться за vlan1.<br>
+    А также порты 48 и 52 должны быть помечены как выходы портов 1 и 2.<br>
+<br>
+    Производить настройку можно с помощью таких приложений, как PuTTy или TeraTerm, а также<br>
+	с веб-интерфейсом, поскольку эти коммутаторы интеллектуальны(intelligent).)<br>
+<br>
+    <input type="image" src="../../images/2/ports.jpg" onclick="window.open('../../images/2/ports.jpg')" height=500 width=auto/><br>
+<br>
+<br>
+    <strong>ZyXel:</strong><br>
+    Я начал настройку с ZyXel.<br>
+    ZyXel - это коммутатор, который подключен к нашему брандмауэру и серверу.<br>
+    Этот коммутатор работает с <a href="https://ru.wikipedia.org/wiki/DHCP" target="_blank">DHCP</a> протоколом, который работает в общей сети коммутаторов<br>
+    и перенаправляет IP-адреса на веб-интерфейсы коммутатора.<br>
+    Чтобы подключиться к ZyXel и настроить его, нам необходимо подключиться к нему через <a href="../../images/2/zyxelconsole.jpg"target="_blank">разъем консольного порта</a> с помощью кабеля VGA на USB.<br>
+    Далее мы используем системную консоль.<br>
+    Но перед этим необходимо проверить свойства USB-to-Serial Comm Port (COM5).<br>
+<ul>
+    <li>Bits per second : 9600</li>
+    <li>Data bits : 8</li>
+    <li>Parity : None</li>
+    <li>Stop bits : 1</li>
+    <li>Flow control : None</li>
+</ul>
+<br>
+	или же<br>
+<ul>
+    <li>Бит в секунду : 9600</li>
+    <li>Биты данных : 8</li>
+    <li>Четность : None</li>
+    <li>Стоп биты : 1</li>
+    <li>Контроль потока : None</li>
+</ul>
+    <input type="image" src="../../images/2/com5prop.jpg" onclick="window.open('../../images/2/com5prop.jpg')" height=400 width=auto/><br>
+<br>
+<div class="tip">
+    Распространённая проблема с драйвером COM-портов - ошибка 10<br>
+	(Это устройство не может запуститься, This device cannot start)<br>
+    Чтобы исправить это, я установил <a href="../../materials/2/PL2303_64bit_Installer.exe" download>драйвер</a> <a href="http://www.totalcardiagnostics.com/support/Knowledgebase/Article/View/92/20/prolific-usb-to-serial-fix-official-solution-to-code-10-error" target="_blank">отсюда</a>.
+</div>
+<br>
+    Если все получилось, мы можем открыть эмулятор терминала(Putty или Tera Term).<br>
+    Я использовал Tera Term, все изображения далее Tera Term.<br>
+    Открывая <a href="../../images/2/teraterm1.jpg" target="_blank">эмулятор</a>, вы должны выбрать тип последовательного соединения.<br>
+<br>
+    <input type="image" src="../../images/2/teraterm2.jpg" onclick="window.open('../../images/2/teraterm2.jpg')" height=auto width=50%/><br>
+<br>
+<div class="tip">
+    Если вы не можете выбрать COM5, проверьте подключение USB к консоли.
+</div>
+<br>
+    Сейчас в консоли вы можете видеть только черный экран:<br>
+<br>
+    <input type="image" src="../../images/2/teraconsole.jpg" onclick="window.open('../../images/2/teraconsole.jpg')" height=250 width=auto/><br>
+<br>
+    Нажмите Enter.<br>
+    Должно появиться поле ввода пароля.<br>
+    Пароль по умолчанию на ZyXel: "1234",<br>
+    И имя пользователя: "admin".<br>
+<br>
+    <input type="image" src="../../images/2/teraconsolepw.jpg" onclick="window.open('../../images/2/teraconsolepw.jpg')" height=250 width=auto/><br>
+<br>
+    После этого мы попадаем на интерфейс командной строки(CLI) свитча.<br>
+    Нам нужны настройки, поэтому введите "config".<br>
+    Теперь нам нужно подключиться к сети vlan.<br>
+    Чтобы зайти в yfcnhjqrb ctnb vlan1 просто введите "имя vlan" (vlan 1),<br>
+    Затем нам необходимо подключиться к IP-адресу коммутатора и маске подсети(subnet mask).<br>
+    Должно выглядит примерно так: «IP-адрес 192.168.0.1 255.255.255.0».<br>
+<br>
+    <input type="image" src="../../images/2/com5con.jpg" onclick="window.open('../../images/2/com5con.jpg')" height=auto width=50%/><br>
+<br>
+	В браузере надо только ввести IP свитча, и вы будете автоматически на него перенаправлены.<br>
+    И вот! Мы можем использовать <a href="../../images/2/zyxelinterface.jpg" target="_blank">ZyXel веб-интерфейс</a>.<br>
+<br>
+<br>
+    <strong>HP:</strong><br>
+    С помощью коммутатора HPe 1820 нам сначала необходимо изменить параметры IPv4-протокола в свойствах подключения по локальной сети.<br>
+    (запомните текущие настройки, чтобы можно было восстановить их позже.)<br>
+<br>
+    <input type="image" src="../../images/2/netsett.jpg" onclick="window.open('../../images/2/netsett.jpg')" height=300 width=auto/><br>
+<br>
+    <input type="image" src="../../images/2/ipconfig.jpg" onclick="window.open('../../images/2/ipconfig.jpg')" height=auto width=50%/><br>
+<br>
+    Для IP введите IP свитча по умолчанию. (192.168.2.12)<br>
+    И маску подсети (255.255.255.0).<br>
+    Нажмите "ОК"<br>
+<br>
+    <input type="image" src="../../images/2/ipconfigright.jpg" onclick="window.open('../../images/2/ipconfigright.jpg')" height=auto width=50%/><br>
+<br>
+    Теперь вы можете перейти в веб-интерфейс,<br>
+    Я советую использовать Microsoft Edge. Сначала я использовал Chrome, но он не хотел работать.<br>
+    По умолчанию 'имя пользователя = "admin" ' и 'пароль = <пусто>'.<br>
+<br>
+    <input type="image" src="../../images/2/hplogin.jpg" onclick="window.open('../../images/2/hplogin.jpg')" height=auto width=50%/><br>
+<br>
+<div class="tip">
+    Не забывайте менять имена пользователей и пароли по умолчанию,<br>
+    потому что, иначе злоумышленники найти пароли и подключится к свитчу,<br>
+    например, с помощью <a href="https://www.shodan.io/" target="_blank">Shodan</a>.)<br>
+</div>
+<br>
+    Внутри мы можем увидеть нашу системную информацию(<a href="../../images/2/sysinf.jpg" target="_blank">System Information</a>) и детали(<a href="../../images/2/netdet.jpg" target="_blank">Network Details</a>)<br>
+    здесь вам нужно изменить тип протокола на DHCP.<br>
+<br>
+    Для настройки VLAN на коммутаторе HP необходимо перейти в Vlan Configuration.<br>
+    Изначально здесь есть только одна VLAN - vlan1,<br>
+    чтобы создать новую, нам нужно просто нажать Add и дать имя для вашего нового vlan.<br>
+    В конце должно быть <a href="../../images/2/hpvlanend.jpg" target="_blank">так</a> для <a href="../../images/2/hpvlan1end.jpg" target="_blank">vlan1</a> и <a href="../../images/2/hpvlan2end.jpg" target="_blank">vlan2</a>.<br>
+
+<br>
+    В заключение:
+<br>
+    Изначально я настраивал Procontra, это более старый коммутатор, чем HP 1820.<br>
+    Поэтому работать с HP 1820 после более старых коммутаторов было потрясающе!<br>
+    И поскольку данная тема(старых свитчей) не особо актуальна, я смог найти только один <a href="https://www.youtube.com/watch?v=QVa10U4ris8" target="_blank">туториал</a> , и то на китайском!<br>
+    Также я пытался использовать коммутатор <a href="../../images/2/hpbad.jpg" target="_blank">HP J9803A</a>, но веб-интерфейс был недоступен из-за версии Java.<br>
+    Я пробовал подключиться на Windows 7 и 10, в разных браузерах, но это не дало мне никаких результатов. (<br>
+    После тщетных попыток мы купили два новых коммутатора HP 1820.<br>
+    И работали уже с ними.<br>
+<br>
+<div class="tip">
+    Совет:<br>
+    Я очень часто пользовался руководствами.<br>
+    Если они у вас есть, то не выбрасывайте их! Будущем они могут вам помочь.<br>
+</div>
+<br>
+    Ресурсы:
+<ul>
+    <li>ZyXel:</li>
+      <ul>
+        <li><a href="../../materials/2/zyxel.pdf" target="_blank">zyxel.pdf</a></li>
+        <li><a href="../../materials/2/zyxelmanual.pdf" target="_blank">zyxelmanual.pdf</a></li>
+      </ul>
+    <li>HP:</li>
+      <ul>
+        <li><a href="../../materials/2/hp.pdf" target="_blank">hp.pdf</a></li>
+      </ul>
+    <li>Всякие ссылки на русском и английском, если нужно:)</li>
+      <ul>
+        <li><a href="../../materials/2/switch.txt" target="_blank">switch.txt</a></li>
+      </ul>
+</ul>
+<br>
+		<p><a href="../../rus/blog.html">Назад</a></p>
+		<p><a href="../../rus/index.html">К началу</a></p>
+		<a onclick="topButtonFunction();"><img src="../../images/icon_up.svg" class="topbutton"></a>
+</div>
+</main>
+</body>
+    <footer>
+		<script src="../../js/topButton.js"></script>
+		<script>
+				function swapStyleSheet(sheet){
+					document.getElementById('pagestyle').setAttribute('href', sheet);
+					localStorage.pagestyle = sheet;
+				}
+
+				function buttonCheckTheme(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}else{
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}
+				}
+
+				window.onload = function checkThemeOnLoad(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}else{
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}
+		}</script>
+    </footer>
+</html>
