@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html type="ru">
+	<head>
+    <title>Блог программиста - Блог</title>
+		<meta property="og:title" content="Блог программиста!">
+        <meta property="og:site_name" content="Progerpadawan">
+        <meta property="og:url" content="https://progerpadawan.github.io/articles/rus/Blog3_PHP.html">
+        <meta property="og:description" content="№ 1 - создание контактной формы на PHP">
+        <meta property="og:image" content="../../images/logo.png">
+		
+		<link rel="stylesheet" href="../../css/atom-one-dark.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link id="pagestyle" rel="stylesheet" href="../../css/dark.css" />
+		<link rel="stylesheet" href="../../css/atom-one-dark.css">
+		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+    </head>
+    <body class="main">
+        <header>
+		<div class="logo_header">
+			<p>
+			<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+			<h1>Блог программиста</h1>
+			</p>
+			<button class="change_color" onclick="buttonCheckTheme()">Сменить фон</button>
+		</div>
+		<br>
+		<hr>
+           <div class="menu">
+		   <nav>
+                <ul>
+                    <li><a href="../../rus/index.html">Главная</a></li>
+                    <li><a href="../../rus/blog.html">Блог</a></li>
+                    <li><a href="../../rus/aboutme.html">Обо мне</a></li>
+                </ul>
+            </nav>
+			</div>
+		<hr>
+        </header>
+        <main>
+    <div class="blogmain">
+
+    <h2>Article - 03<br>
+      "Напиши мне - PHP контактная форма"</h2>
+	<div class="date">
+		(09.07.2019)
+	</div>
+
+    Всем привет!<br>
+<br>
+    Как насчет создания контактной формы, используя только PHP?<br>
+    Я создал одну для моего старого сайта.<br>
+<br>
+    Но прежде я не использовал и не изучал php.<br>
+    И эта контактная форма мой первый опыт работы с php.<br>
+    <a href="https://ru.wikipedia.org/wiki/PHP" target="_blank">PHP</a> (Personal Home Page tools) — это язык программирования общего назначения,
+	разработанный для веб-разработки.<br>
+    Давайте начнем!<br>
+<br>
+    Прежде чем мы начнем писать код, нам нужно создать и запустить наш собственный Apache сервер.<br>
+    Я буду использовать панель управления <a href="https://www.apachefriends.org/index.html" target="_blank">XAMPP</a>.<br>
+    После скачивания Xampp просто запустите сервер Apache.<br>
+<br>
+    <input type="image" src="../../images/3/xampp1.jpg" onclick="window.open('../../images/3/xampp1.jpg')" height=300 width=auto/><br>
+    <input type="image" src="../../images/3/xampp2.jpg" onclick="window.open('../../images/3/xampp2.jpg')" height=300 width=auto/><br>
+<br>
+    При загрузке Xampp автоматически будет создана папка xampp на диске C.<br>
+
+    <input type="image" src="../../images/3/xampp_explorer1.jpg" onclick="window.open('../../images/3/xampp_explorer1.jpg')" height=auto width=50%/><br>
+
+<br>
+    На нем нам нужна папка htdocs:<br>
+
+    <input type="image" src="../../images/3/xampp_explorer2.jpg" onclick="window.open('../../images/3/xampp_explorer2.jpg')" height=auto width=55%/><br>
+
+<br>
+    И это наша основная папка, где мы будем работать.<br>
+    Теперь давайте создадим здесь файл index.php.<br>
+
+    <h4>Echo: "hello world!"</h4>
+
+    <pre><code class="html">&lthtml>
+ &lthead>
+  &lttitle>Test PHP - Hello world!&lt/title>
+ &lt/head>
+  &ltbody>
+     &lt?php echo '&ltp>Hello world!&lt/p>'; ?>
+  &lt/body>
+&lt/html></code></pre>
+    или так:<pre><code class="html">&lthtml>
+ &lthead>
+  &lttitle>Test PHP - Hello world!&lt/title>
+ &lt/head>
+  &ltbody>
+     &lt?php echo 'Hello world!'; ?> //echo is the same as just print.
+  &lt/body>
+&lt/html></code></pre>
+    В отличии от HTML, мы не можем открыть файл .php просто в браузере,<br>
+    сначала нужно подключиться к серверу<br>
+    и для этого нам нужен xampp.<br>
+<br>
+    Если вы уже <a href="../../images/3/xampp2.jpg" target="_blank">подключены</a>,<br>
+    зайдите в браузер на <a href="http://localhost/" target="_blank">http://localhost/</a>.<br>
+    Вы должны увидеть что-то вроде этого:<br>
+
+    <input type="image" src="../../images/3/xampp_helloworld_browser.jpg" onclick="window.open('../../images/3/xampp_helloworld_browser.jpg')" height=50% width=auto/><br>
+
+<br>
+    Как вы могли заметить с php нужно использовать и HTML<br>
+    в html структуре между тегами php выполняется php команды:<br>
+	php <php "command;" ?>.<br>
+<br>
+    А теперь обратно к форме<br>
+<br>
+    В index.php нам нужно создать контактную форму, которая отправляет данные на сервер<br>
+    и нам нужно их там собрать.<br>
+<br>
+    Форма обратной связи (index.php):<pre><code class="html">&lt!DOCTYPE html>
+&lthtml lang="en" dir="ltr">
+  &lthead>
+    &ltmeta charset="utf-8">
+    &lttitle>&lt/title>
+  &lt/head>
+  &ltbody>
+    &lt?php
+      $_POST
+     ?>
+    &ltform action="welcome.php" method="post">
+      &ltinput type="text" name="name" placeholder="Name" maxlength="25">&ltbr> &lt!--&ltbr> used to wrap text/object-->
+      &ltinput type="email" name="email" placeholder="E-mail" maxlength="25">&ltbr>
+      &ltinput type="text" name="subject" placeholder="Subject" maxlength="25">&ltbr>
+     &ltbr>
+      &lttextarea type="text" name="text" placeholder="Message" maxlength="300" rows="10px" cols="35px">&lt/textarea>&ltbr>
+     &ltbr>
+      &ltinput type="submit">
+    &lt/form>
+  &lt/body>
+&lt/html></code></pre>
+
+    <input type="image" src="../../images/3/form_input.jpg" onclick="window.open('../../images/3/form_input.jpg')" height=auto width=30%/><br>
+
+    Мы создали форму с тегом &ltform>)<br>
+    и действием направленном на файл welcome.php через метод <a href="https://www.w3schools.com/tags/att_form_method.asp" target="_blank">get или post</a>.<br>
+    Это означает, что при нажатии на кнопку отправки (&ltinput type="submit">)<br>
+    результат этой формы будет отправлен в этот (welcome.php) файл.<br>
+    Как будто бы мы создаем мост между этими двумя файлами, один из которых находится на сервере.<br>
+<br>
+    В этой форме мы создаем окно ввода для имени / электронной почты / темы, текстовое окно для сообщения<br>
+    и кнопку отправки.<br>
+    Для каждого окна мы прописываем тип данных (type = "type"),<br>
+    Такие как, text для текста и email для электронных писем и тд..<br>
+
+    <input type="image" src="../../images/3/form_input_email.jpg" onclick="window.open('../../images/3/form_input_email.jpg')" height=auto width=30%/><br>
+
+    Также мы можем назначить максимальную длину ввода с maxlength = "25"<br>
+    и можно написать что-то в окне ввода с атрибутом placeholder = "write what",<br>
+    пользователь будет видеть эту надпись до тех пор, как не начнет что-то в нем писать.<br>
+
+    <input type="image" src="../../images/3/form_input_placeholder.jpg" onclick="window.open('../../images/3/form_input_placeholder.jpg')" height=auto width=30%/><br>
+
+    У нас есть информация из контактной формы, которая будет отправлена.<br>
+    Но нам нужно ее собрать.<br>
+    И это мы делаем во втором файле (welcome.php).<br><pre><code class="html">&lt!DOCTYPE html>
+&lthtml lang="en" dir="ltr">
+  &lthead>
+    &ltmeta charset="utf-8">
+    &lttitle>&lt/title>
+  &lt/head>
+    &ltbody>
+      &lt?php
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $subject = $_POST["subject"];
+        $text = $_POST["text"];
+        $date = date("h:i:sa [d.m.Y]");
+        $br = "\n";
+        $line = "-------------------------";
+
+        echo $date;
+        echo "&ltbr>";
+        echo "name is: " . $name;
+        echo "&ltbr>";
+        echo "email is: " . $email;
+        echo "&ltbr>";
+        echo "subject is: " . $subject;
+        echo "&ltbr>";
+        echo "message: " . $text;
+        echo "&ltbr>";
+        echo $line;
+        echo "&ltbr>";
+       ?>
+    &lt/body>
+&lt/html></code></pre>
+    Вы видите, что мы создаем переменные с символом $<br>
+    и присваиваем данные из контактной формы с помощью метода <a href="https://www.php.net/manual/en/reserved.variables.post.php" target="_blank">$_POST</a> или <a href="https://www.php.net/manual/en/reserved.variables.get.php" target="_blank">$_GET</a> from a contact form to these variables.<br>
+    В квадратных скобках нам нужно написать, какое имя входа из index.php будет сохранено в переменной.<br><pre><code class=html>&ltinput type="text" name="name">
+---------------------------------------------------
+$name = $_POST[<font color=lightgreen>"name"</font>];</code></pre>
+или
+<pre><code class=html>&ltinput type="email" name="email">
+---------------------------------------------------
+$email = $_POST[<font color=lightgreen>"email"</font>];</code></pre>
+
+    Это должно выглядеть так:<br>
+
+    <input type="image" src="../../images/3/form_output.jpg" onclick="window.open('../../images/3/form_output.jpg')" height=auto width=30%/><br>
+
+    Теперь мы можем писать -> отправлять -> читать входные данные<br>
+    Но мы должны их и уметь сохранять.<br>
+    Я реализовал это так: если вы нажали на кнопку отправить, вы будете отправлены на welcome.php<br>
+    и ваши введенная информация будет сохранена в log.txt<br>
+    welcome.php: <pre><code class=html>&lt!DOCTYPE html>
+&lthtml lang="en" dir="ltr">
+  &lthead>
+    &ltmeta charset="utf-8">
+    &lttitle>&lt/title>
+  &lt/head>
+  &ltbody>
+    &lt?php
+      $name = $_POST["name"];
+      $email = $_POST["email"];
+      $subject = $_POST["subject"];
+      $text = $_POST["text"];
+      $date = date("h:i:sa [d.m.Y]");
+      $br = "\n";
+      $line = "-------------------------";
+
+      $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
+      $log = file_put_contents('logs.txt', "date: " . $date.PHP_EOL , FILE_APPEND | LOCK_EX);
+      $log = file_put_contents('logs.txt', "name: " . $name.PHP_EOL , FILE_APPEND | LOCK_EX);
+      $log = file_put_contents('logs.txt', "email: " . $email.PHP_EOL , FILE_APPEND | LOCK_EX);
+      $log = file_put_contents('logs.txt', "subject: " . $subject.PHP_EOL , FILE_APPEND | LOCK_EX);
+      $log = file_put_contents('logs.txt', "message: " . $text.PHP_EOL , FILE_APPEND | LOCK_EX);
+      $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
+      $log = file_put_contents('logs.txt', $br.PHP_EOL , FILE_APPEND | LOCK_EX);
+     ?>
+  &lt/body>
+&lt/html>
+</code></pre>
+    Видите, я не использую echo, потому что пользователю не нужно видеть его письмо.<br>
+    Вместо этого мы создаем logs.txt<br>
+    (нам не нужно создавать файл самостоятельно, php автоматически создаст файл, если он его не найдет)<br>
+    и записывает содержимое переменных в него.<br>
+
+    <pre><code class = php>$log = file_put_contents(<u>'logs.txt'</u>, <u>$line</u>.PHP_EOL , FILE_APPEND | LOCK_EX);</code></pre>
+
+    Думаю, было бы гораздо удобнее, если бы мы знали дату отправки письма. <pre><code class="php">$date = date("h:i:sa [d.m.Y]");</code></pre>
+
+    Сервер может самостоятельно узнать время, без дополнительных скриптов.<br>
+    Просто напишите, в каком <a href="https://www.php.net/manual/ru/function.date.php" target="_blank">формате</a> вы хотите видеть время..<br>
+<br>
+    Я немного поиграл с дизайном логов, и результат должен быть примерно таким:<br>
+<br>
+    -------------------------<br>
+    date: 02:01:13pm [25.03.2019]<br>
+    name: Max<br>
+    email: email@email.email<br>
+    subject: test 1<br>
+    message: Hi<br>
+    -------------------------<br>
+<br>
+<br>
+    -------------------------<br>
+    date: 02:08:35pm [25.04.2019]<br>
+    name: Max<br>
+    email: email@email.email<br>
+    subject: test 2<br>
+    message: Hi again<br>
+    -------------------------<br>
+<br>
+    Наверное, это все,<br>
+    мы создали контактную форму на php!<br>
+<br>
+         <p><a href="../../rus/blog.html">Назад</a></p>
+		<p><a href="../../rus/index.html">К началу</a></p>
+		<a onclick="topButtonFunction();"><img src="../../images/icon_up.svg" class="topbutton"></a>
+</div>
+        </main>
+    </body>
+    <footer>
+		<script src="../../js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="../../js/topButton.js"></script>
+
+		<script>
+				function swapStyleSheet(sheet){
+					document.getElementById('pagestyle').setAttribute('href', sheet);
+					localStorage.pagestyle = sheet;
+				}
+
+				function buttonCheckTheme(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}else{
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}
+				}
+
+				window.onload = function checkThemeOnLoad(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}else{
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}
+		}</script>
+    </footer>
+</html>
