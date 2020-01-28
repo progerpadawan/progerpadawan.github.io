@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html type="ru">
+	<head>
+        <title>Блог программиста - Блог</title>
+		    <meta property="og:title" content="Блог программиста!">
+        <meta property="og:site_name" content="Progerpadawan">
+        <meta property="og:url" content="https://progerpadawan.github.io/articles/rus/Blog4_DHCP.html">
+        <meta property="og:description" content="№ 4 - настройка DHCP сервера">
+        <meta property="og:image" content="../../images/logo.png">
+
+		    <link rel="stylesheet" href="../../css/atom-one-dark.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link id="pagestyle" rel="stylesheet" href="../../css/dark.css" />
+		    <link rel="stylesheet" href="../../css/atom-one-dark.css">
+		    <link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+    </head>
+    <body class="main">
+        <header>
+		<div class="logo_header">
+			<p>
+			<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+			<h1>Блог программиста</h1>
+			</p>
+			<button class="change_color" onclick="buttonCheckTheme()">Сменить фон</button>
+		</div>
+		<br>
+		<hr>
+           <div class="menu">
+		   <nav>
+                <ul>
+                    <li><a href="../../rus/index.html">Главная</a></li>
+                    <li><a href="../../rus/blog.html">Блог</a></li>
+                    <li><a href="../../rus/aboutme.html">Обо мне</a></li>
+                </ul>
+            </nav>
+			</div>
+		<hr>
+        </header>
+        <main>
+    <div class="blogmain">
+
+    <h2>Статья - 04<br>
+      "Настройка DHCP Сервера"</h2>
+	<div class="date">
+		(15.10.2019)
+	</div>
+
+    Привет,<br>
+<br>
+    Эта статья о том, как установить и настроить DHCP-сервер на клиентах Ubuntu Linux(18.04)/Windows и Windows.<br>
+<br>
+    DHCP (Dynamic Host Configuration Protocol) - это сетевой протокол, который позволяет<br>
+    сетевым устройствам автоматически получать IP-адреса и другие параметры,<br>
+    необходимые для работы в сети TCP/IP.<br>
+    Этот протокол работает в соответствии с моделью клиент-сервер.<br>
+     Клиент при настройке подключения получает данные с сервера.<br>
+<br>
+    Все это я делал на Oracle VM VirtualBox Manager, поэтому,<br>
+		если вы не используете VM, вы можете пропустить первые пару шагов.<br>
+<br>
+		Для начала нам нужно добавить и настроить NatNetwork – Virtual Networking Hardware.<br>
+<br>
+    <input type="image" src="../../images/4/natconf.png" onclick="window.open('../../images/4/natconf.png')" height=300 width=auto/><br>
+<br>
+    После этого мы можем создать DHCP Ubuntu VM сервер и сразу после изменить Network Config.<br>
+<br>
+    Сервер:<br>
+    <input type="image" src="../../images/4/nwsc1.png" onclick="window.open('../../images/4/nwsc1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/nwsc2.png" onclick="window.open('../../images/4/nwsc2.png')" height=300 width=auto/><br>
+<br>
+    Клиент:<br>
+    <input type="image" src="../../images/4/nwcc.png" onclick="window.open('../../images/4/nwcc.png')" height=300 width=auto/><br>
+<br>
+    Клиент имеет только одну сетевую карту, а именно виртуальную сетевую карту NAT,<br>
+    так она сможет производить обмен данными с DNS-сервером, который имеет две сетевые карты.<br>
+<br>
+<br>
+    <strong>Ubuntu Linux Сервер</strong><br>
+<br>
+    <div class="tip">
+      Я работал на Ubuntu 18.04, если вы работаете с 16.04, эти конфигурации не будет работать
+    </div>
+<br>
+    <input type="image" src="../../images/4/uls1.png" onclick="window.open('../../images/4/uls1.png')" height=300 width=auto/><br>
+<br>
+    После запуска вортуального Ubuntu <br>
+    Было бы не плохо настроить IP <br>
+    <input type="image" src="../../images/4/uls2.png" onclick="window.open('../../images/4/uls2.png')" height=300 width=auto/><br>
+<br>
+    По умолчанию это автоматически-настраиваемый DHCP<br>
+    <input type="image" src="../../images/4/uls3.png" onclick="window.open('../../images/4/uls3.png')" height=300 width=auto/><br>
+<br>
+    Мы будем использовать свои настройки DHCP <br>
+    <input type="image" src="../../images/4/uls4.png" onclick="window.open('../../images/4/uls4.png')" height=300 width=auto/><br>
+<br>
+    После этого почти готово, <br>
+    <input type="image" src="../../images/4/uls5.png" onclick="window.open('../../images/4/uls5.png')" height=300 width=auto/><br>
+<br>
+    Осталось только создать своего пользователя<br>
+    <input type="image" src="../../images/4/uls6.png" onclick="window.open('../../images/4/uls6.png')" height=300 width=auto/><br>
+<br>
+    Добро пожаловать, мы внутри!<br>
+    Обновим информацию о пакетах Linux <br>
+    <span style="background-color: #a9a9a9"> sudo apt-get update </span><br>
+    <input type="image" src="../../images/4/ulscau2.png" onclick="window.open('../../images/4/ulscau2.png')" height=300 width=auto/><br>
+    или так, если нечего обновлять<br>
+    <input type="image" src="../../images/4/ulscau.png" onclick="window.open('../../images/4/ulscau.png')" height=300 width=auto/><br>
+    Теперь мы можем установить DHCP сервис <br>
+    <span style="background-color: #a9a9a9"> sudo apt install isc-dhcp-server </span><br>
+    <br>
+        <div class="tip">
+          Не забывайте копировать файлы с помощью cp original_file_name original_file_name.cp,<br>
+          прежде чем изменять файлы конфигурации, для предотвращения <br>
+          неисправимых ошибок.
+        </div>
+<br>
+    Сейчас в директории etc/dhcp <br>
+    <span style="background-color: #a9a9a9"> cd /etc/dhcp </span><br>
+    изменяем файл DHCP конфигурации dhcpd.conf <br>
+    <span style="background-color: #a9a9a9"> sudo nano dhcpd.conf </span><br>
+<br>
+    <ul>
+        <li>"default-lease-time" to 691200;</li>
+        <li>"max-lease-time" to 691200;</li>
+        <li>Remove "#" before "authoritative;"</li>
+        <li>subnetmask: 192.168.100.0;</li>
+        <li>netmask: 255.255.255.0;</li>
+        <li>Range: 192.168.100.101 192.168.100.200;</li>
+    </ul>
+<br>
+    до:<br>
+    <input type="image" src="../../images/4/ulscb1.png" onclick="window.open('../../images/4/ulscb1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/ulscb2.png" onclick="window.open('../../images/4/ulscb2.png')" height=300 width=auto/><br>
+<br>
+    после:<br>
+    <input type="image" src="../../images/4/ulsca1.png" onclick="window.open('../../images/4/ulsca1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/ulsca2.png" onclick="window.open('../../images/4/ulsca2.png')" height=300 width=auto/><br>
+<br>
+    <span style="background-color: #a9a9a9"> Ctrl S </span> чтобы сохранить изменения<br>
+    <span style="background-color: #a9a9a9"> Ctrl X </span> чтобы выйти из редактора nano<br>
+<br>
+    Использовав команду <span style="background-color: #a9a9a9"> ifconfig -a </span> можно увидеть параметры DHCP <br>
+    <input type="image" src="../../images/4/uls7.png" onclick="window.open('../../images/4/uls7.png')" height=300 width=auto/><br>
+<br>
+    Нам нужно настроить enp0s8 <br>
+    Дальше в /etc/default в файле isc-dhcp-server <br>
+    <span style="background-color: #a9a9a9"> sudo nano /etc/default/isc-dhcp-server </span><br>
+    <input type="image" src="../../images/4/uls8.png" onclick="window.open('../../images/4/uls8.png')" height=300 width=auto/><br>
+<br>
+    Собственно, это все. <br>
+    Теперь надо запустить DHCP сервер <br>
+    <span style="background-color: #a9a9a9"> sudo service isc-dhcp-server start </span><br>
+<br>
+    И проверить его статус<br>
+    <span style="background-color: #a9a9a9"> sudo service isc-dhcp-server status </span><br>
+    <input type="image" src="../../images/4/ulsdss.png" onclick="window.open('../../images/4/ulsdss.png')" height=300 width=auto/><br>
+    Это красно-подсвеченное предупреждение вы можете игнорировать, но, <br>
+    если вы видите другие предупреждения, вам нужно проверить конфигурационные файлы. <br>
+<br>
+<br>
+    <strong>Windows DHCP сервер</strong><br>
+<br>
+    Я использую немецкую версию Windows Server 2019 для настольных компьютеров,<br>
+    поэтому извините за немецкие надписи в изображениях. <br>
+    <input type="image" src="../../images/4/wdhcps1.png" onclick="window.open('../../images/4/wdhcps1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/wdhcps2.png" onclick="window.open('../../images/4/wdhcps2.png')" height=300 width=auto/><br>
+<br>
+    После установки виртуальной машины Windows также необходимо настроить DHCP-сервер.<br>
+    При запуске VM автоматически должно открыться окно Server-Manager,<br>
+    <input type="image" src="../../images/4/wdhcps3.png" onclick="window.open('../../images/4/wdhcps3.png')" height=300 width=auto/><br>
+<br>
+    Здесь вы должны выбрать «Роль сервера» (Server-Rolle(role))<br>
+    Дальше просто нужно нажимать «Далее»<br>
+    <input type="image" src="../../images/4/wdhcps4.png" onclick="window.open('../../images/4/wdhcps4.png')" height=300 width=auto/><br>
+<br>
+    Затем вы должны выбрать «DHCP Tools» в меню Windows<br>
+    <input type="image" src="../../images/4/wdhcps5.png" onclick="window.open('../../images/4/wdhcps5.png')" height=300 width=auto/><br>
+<br>
+    Тут вы щелкаете правой кнопкой мыши на «IPV4» и выбираете «Новая область»(New area).<br>
+    Должно открыться другое окно для дальнейшей настройки. <br>
+    <input type="image" src="../../images/4/wdhcps6.png" onclick="window.open('../../images/4/wdhcps6.png')" height=300 width=auto/><br>
+<br>
+    Нажмите «Далее», а затем выберите любое описание и любое имя, которое вам нравиться.<br>
+    <input type="image" src="../../images/4/wdhcps7.png" onclick="window.open('../../images/4/wdhcps7.png')" height=300 width=auto/><br>
+<br>
+<br>
+    <strong>Windows клиент</strong><br>
+<br>
+    В качестве клиента вы можете использовать тот же vm, что и для сервера Windows,<br>
+		только не забудьте изменить настройки сети vm из первого шага.<br>
+<br>
+    На Windows клиенте нам нужно изменить только настройки IPv4.<br>
+    Откройте «Настройки сети и Интернета» -> «Изменить параметры адаптера» -> «Параметры сетевого адаптера» -> «4 верстия протокола» <br>
+    или <br>
+    Network&Internet Settings -> change adapters options -> network adapter options -> Internetprotokol version 4:<br>
+    <input type="image" src="../../images/4/wdhcps8.png" onclick="window.open('../../images/4/wdhcps8.png')" height=300 width=auto/><br>
+<br>
+<br>
+    <strong>Тестируем</strong><br>
+<br>
+    Чтобы проверить наше соединение dhcp, откройте командную строку на клиенте:<br>
+    И введите <span style="background-color: #a9a9a9"> ipconfig </span><br>
+    IP-адреса должны измениться и совпадать, в противном случае проверьте свои конфигурации.<br>
+    <input type="image" src="../../images/4/test.png" onclick="window.open('../../images/4/test.png')" height=300 width=auto/><br>
+<br>
+		<a onclick="topButtonFunction();"><img src="../../images/icon_up.svg" class="topbutton"></a>
+		<p><a href="../../blog.html">Back</a></p>
+		<p><a href="../../index.html">Back to start</a></p>
+</div>
+        </main>
+    </body>
+    <footer>
+		<script src="../../js/highlight.pack.js"></script>
+		 <script>hljs.initHighlightingOnLoad();</script>
+		 <script src="../../js/topButton.js"></script>
+
+		<script>
+				function swapStyleSheet(sheet){
+					document.getElementById('pagestyle').setAttribute('href', sheet);
+					localStorage.pagestyle = sheet;
+				}
+
+				function buttonCheckTheme(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}else{
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}
+				}
+
+				window.onload = function checkThemeOnLoad(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}else{
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}
+		}</script>
+    </footer>
+</html>

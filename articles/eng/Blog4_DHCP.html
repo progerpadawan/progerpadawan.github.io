@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html type="en">
+    <head>
+        <title>Programming Blog - Blog</title>
+		    <meta property="og:title" content="Blog about programming!">
+        <meta property="og:site_name" content="Progerpadawan">
+        <meta property="og:url" content="https://progerpadawan.github.io/articles/eng/Blog4_DHCP.html">
+        <meta property="og:description" content="№ 4 - configure a DHCP Server">
+        <meta property="og:image" content="../../images/logo.png">
+
+    		<link rel="stylesheet" href="../../css/atom-one-dark.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link id="pagestyle" rel="stylesheet" href="../../css/dark.css"/>
+    		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+	</head>
+	<header>
+	<div class="logo_header">
+		<p>
+		<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+		<h1>Programming Blog </h1>
+		</p>
+		<button class="change_color" onclick="buttonCheckTheme()">Change color</button>
+	</div>
+	<br>
+	<hr>
+	   <div class="menu">
+	   <nav>
+			<ul>
+				<li><a href="../../index.html">Main</a></li>
+				<li><a href="../../blog.html">Blog</a></li>
+				<li><a href="../../aboutme.html">About Me</a></li>
+			</ul>
+		</nav>
+		</div>
+	<hr>
+	</header>
+        <main>
+    <div class="blogmain">
+
+    <h2>Article - 04<br>
+      "Configure DHCP Server"</h2>
+	<div class="date">
+		(15.10.2019)
+	</div>
+
+    Hello,<br>
+<br>
+    This article is about how to install/configurate DHCP Server on Ubuntu Linux(18.04) /Windows and Windows clients.<br>
+<br>
+    DHCP (Dynamic Host Configuration Protocol) is a network protocol that allows network<br>
+    devices to automatically obtain the IP address and other parameters necessary to operate on a TCP / IP network.<br>
+    This protocol works according to the client-server(link) model.<br>
+    The client, when setting up the connection, receives data from the server.<br>
+<br>
+    I have done it all on Oracle VM VirtualBox Manager so if you no use VM you also can skip first pair steps.<br>
+    First, we need to add and configure NatNetwork – Virtual Networking Hardware.<br>
+<br>
+    <input type="image" src="../../images/4/natconf.png" onclick="window.open('../../images/4/natconf.png')" height=300 width=auto/><br>
+<br>
+    After this we can create DHCP Server Ubuntu VM and right after change Network Config.<br>
+<br>
+    Server:<br>
+    <input type="image" src="../../images/4/nwsc1.png" onclick="window.open('../../images/4/nwsc1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/nwsc2.png" onclick="window.open('../../images/4/nwsc2.png')" height=300 width=auto/><br>
+<br>
+    Client:<br>
+    <input type="image" src="../../images/4/nwcc.png" onclick="window.open('../../images/4/nwcc.png')" height=300 width=auto/><br>
+<br>
+    Client has only one network card, namely the virtual NAT network card,<br>
+    so that the communication to the DNS server, which has 2 network cards, can take place.<br>
+<br>
+<br>
+    <strong>Ubuntu Linux Server</strong><br>
+<br>
+    <div class="tip">
+      I’m working on Ubuntu 18.04, If you are working with 16.04 these configurations should not working.
+    </div>
+<br>
+    <input type="image" src="../../images/4/uls1.png" onclick="window.open('../../images/4/uls1.png')" height=300 width=auto/><br>
+<br>
+    After Ubuntu VM start <br>
+    It would be better to config IP <br>
+    <input type="image" src="../../images/4/uls2.png" onclick="window.open('../../images/4/uls2.png')" height=300 width=auto/><br>
+<br>
+    Default it's automatic DHCP <br>
+    <input type="image" src="../../images/4/uls3.png" onclick="window.open('../../images/4/uls3.png')" height=300 width=auto/><br>
+<br>
+    We would use Manual DHCP Configurations <br>
+    <input type="image" src="../../images/4/uls4.png" onclick="window.open('../../images/4/uls4.png')" height=300 width=auto/><br>
+<br>
+    After this it’s almost ready, <br>
+    <input type="image" src="../../images/4/uls5.png" onclick="window.open('../../images/4/uls5.png')" height=300 width=auto/><br>
+<br>
+    just configure your account <br>
+    <input type="image" src="../../images/4/uls6.png" onclick="window.open('../../images/4/uls6.png')" height=300 width=auto/><br>
+<br>
+    You are welcome, we are in! <br>
+    After apt-get update <br>
+    <span style="background-color: #a9a9a9"> sudo apt-get update </span><br>
+    <input type="image" src="../../images/4/ulscau2.png" onclick="window.open('../../images/4/ulscau2.png')" height=300 width=auto/><br>
+    or when noting to update<br>
+    <input type="image" src="../../images/4/ulscau.png" onclick="window.open('../../images/4/ulscau.png')" height=300 width=auto/><br>
+    Now we can install DHCP service <br>
+    <span style="background-color: #a9a9a9"> sudo apt install isc-dhcp-server </span><br>
+    <br>
+        <div class="tip">
+          Don’t forget to do file copy with cp original_file_name original_file_name.cp before changing, to prevent fatal errors.
+        </div>
+<br>
+    After in directory etc/dhcp <br>
+    <span style="background-color: #a9a9a9"> cd /etc/dhcp </span><br>
+    change dhcpd.conf dhcp config file <br>
+    <span style="background-color: #a9a9a9"> sudo nano dhcpd.conf </span><br>
+<br>
+    <ul>
+        <li>"default-lease-time" to 691200;</li>
+        <li>"max-lease-time" to 691200;</li>
+        <li>Remove "#" before "authoritative;"</li>
+        <li>subnetmask: 192.168.100.0;</li>
+        <li>netmask: 255.255.255.0;</li>
+        <li>Range: 192.168.100.101 192.168.100.200;</li>
+    </ul>
+<br>
+    before:<br>
+    <input type="image" src="../../images/4/ulscb1.png" onclick="window.open('../../images/4/ulscb1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/ulscb2.png" onclick="window.open('../../images/4/ulscb2.png')" height=300 width=auto/><br>
+<br>
+    after:<br>
+    <input type="image" src="../../images/4/ulsca1.png" onclick="window.open('../../images/4/ulsca1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/ulsca2.png" onclick="window.open('../../images/4/ulsca2.png')" height=300 width=auto/><br>
+<br>
+    <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
+    <span style="background-color: #a9a9a9"> Ctrl X </span> to exit from nano editor<br>
+<br>
+    With <span style="background-color: #a9a9a9"> ifconfig -a </span> you can see DHCP settings <br>
+    <input type="image" src="../../images/4/uls7.png" onclick="window.open('../../images/4/uls7.png')" height=300 width=auto/><br>
+<br>
+    we need configure enp0s8 <br>
+    next in /etc/default in isc-dhcp-server file <br>
+    <span style="background-color: #a9a9a9"> sudo nano /etc/default/isc-dhcp-server </span><br>
+    <input type="image" src="../../images/4/uls8.png" onclick="window.open('../../images/4/uls8.png')" height=300 width=auto/><br>
+<br>
+    It’s all <br>
+    Now you need to start DHCP server <br>
+    <span style="background-color: #a9a9a9"> sudo service isc-dhcp-server start </span><br>
+<br>
+    And let’s check server status <br>
+    <span style="background-color: #a9a9a9"> sudo service isc-dhcp-server status </span><br>
+    <input type="image" src="../../images/4/ulsdss.png" onclick="window.open('../../images/4/ulsdss.png')" height=300 width=auto/><br>
+    This red-colored alert you can ignoring but if you have other errors you need to check configured files. <br>
+<br>
+<br>
+    <strong>Windows DHCP server</strong><br>
+<br>
+    I’m using germane Windows Server 2019 Desktop version, therefore sorry for german on images. <br>
+    <input type="image" src="../../images/4/wdhcps1.png" onclick="window.open('../../images/4/wdhcps1.png')" height=300 width=auto/>
+    <input type="image" src="../../images/4/wdhcps2.png" onclick="window.open('../../images/4/wdhcps2.png')" height=300 width=auto/><br>
+<br>
+    After installing the Windows Virtual Machine, you also have to configure DHCP server. <br>
+    Automatically by Windows start it should open Server-Manager window,<br>
+    <input type="image" src="../../images/4/wdhcps3.png" onclick="window.open('../../images/4/wdhcps3.png')" height=300 width=auto/><br>
+<br>
+    Here you have to select "Server role"(Server-Rolle)<br>
+    Then you just have to press "Next"<br>
+    <input type="image" src="../../images/4/wdhcps4.png" onclick="window.open('../../images/4/wdhcps4.png')" height=300 width=auto/><br>
+<br>
+    Then you have to select "DHCP Tools" in the Windows menu <br>
+    <input type="image" src="../../images/4/wdhcps5.png" onclick="window.open('../../images/4/wdhcps5.png')" height=300 width=auto/><br>
+<br>
+    Here you right-click on "IPV4" and select "New area". This opens another window for further configuration. <br>
+    <input type="image" src="../../images/4/wdhcps6.png" onclick="window.open('../../images/4/wdhcps6.png')" height=300 width=auto/><br>
+<br>
+    Press "Next" and then select any description and any name.<br>
+    <input type="image" src="../../images/4/wdhcps7.png" onclick="window.open('../../images/4/wdhcps7.png')" height=300 width=auto/><br>
+<br>
+<br>
+    <strong>Windows Client</strong><br>
+<br>
+    As client you can use same vm as for Windows server, don’t forget to change vm Network configurations from first step.<br>
+<br>
+    On Windows you need just to change IPv4 configurations.<br>
+    Open Network&Internet Settings -> change adapters options -> network adapter options -> Internetprotokol version 4: <br>
+    <input type="image" src="../../images/4/wdhcps8.png" onclick="window.open('../../images/4/wdhcps8.png')" height=300 width=auto/><br>
+<br>
+<br>
+    <strong>Test</strong><br>
+<br>
+    To test your dhcp connection open command line on client:<br>
+    And use <span style="background-color: #a9a9a9"> ipconfig </span><br>
+    IPs should be right, otherwise check your configurations. <br>
+    <input type="image" src="../../images/4/test.png" onclick="window.open('../../images/4/test.png')" height=300 width=auto/><br>
+<br>
+		<a onclick="topButtonFunction();"><img src="../../images/icon_up.svg" class="topbutton"></a>
+		<p><a href="../../blog.html">Back</a></p>
+		<p><a href="../../index.html">Back to start</a></p>
+</div>
+        </main>
+    </body>
+    <footer>
+		<script src="../../js/highlight.pack.js"></script>
+		 <script>hljs.initHighlightingOnLoad();</script>
+		 <script src="../../js/topButton.js"></script>
+
+		<script>
+				function swapStyleSheet(sheet){
+					document.getElementById('pagestyle').setAttribute('href', sheet);
+					localStorage.pagestyle = sheet;
+				}
+
+				function buttonCheckTheme(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}else{
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}
+				}
+
+				window.onload = function checkThemeOnLoad(){
+					if(localStorage.pagestyle === 'dark.css'){
+						swapStyleSheet('../../css/dark.css');
+						localStorage.pagestyle = 'dark.css';
+					}else{
+						swapStyleSheet('../../css/light.css');
+						localStorage.pagestyle = 'light.css';
+					}
+		}</script>
+    </footer>
+</html>
