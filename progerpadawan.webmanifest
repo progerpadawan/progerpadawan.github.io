@@ -1,0 +1,21 @@
+﻿{
+    "name": "Progerpadawan Progressive Web App",
+    "short_name": "progerpadawan",
+    "description": "Progressive Web App with local cash of website progerpadawan.github.io.",
+    "icons": [
+        {
+            "src": "images/logo16x16e.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+		{
+            "src": "images/logo.png",
+            "sizes": "189x198",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "theme_color": "black",
+    "background_color": "#11112"
+}
