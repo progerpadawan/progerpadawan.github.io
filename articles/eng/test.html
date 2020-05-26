@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html type="en">
+  <head>
+	<meta charset="UTF-8">
+	<title>Programming Blog - Blog</title>
+	<meta property="og:title" content="Blog about programming!">
+    <meta property="og:site_name" content="Progerpadawan">
+    <meta property="og:url" content="https://progerpadawan.github.io/articles/eng/Blog1_Html.html">
+    <meta property="og:description" content="№ 1 - webpage creating">
+    <meta property="og:image" content="../../images/logo.png">
+    <link rel="stylesheet" href="../../css/atom-one-dark.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link id="pagestyle" rel="stylesheet" href="../../css/test.css"/>
+  	<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+  <head>
+  <div class="grid-container">
+  	<div class="logo_header">
+  	  <div class="logo-logo">
+        <input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+      </div>
+      <div class="logo-title">
+        <h1>Programming Blog </h1>
+      </div>
+      <div class="logo-button">
+        <button class="change_color" onclick="buttonCheckTheme()">Change color</button>
+      </div>
+  	</div>
+  	<br>
+  	<div class="menu">
+      <hr>
+  	  <nav>
+    		<ul>
+    			<li><a href="../../index.html">Main</a></li>
+    			<li><a href="../../blog.html">Blog</a></li>
+    			<li><a href="../../aboutme.html">About Me</a></li>
+    		</ul>
+  		</nav>
+      <hr>
+  	</div>
+    <div class="blogmain">
+      <div class="content">
+        <h2>Article - 01<br>
+          "Create webpage"</h2>
+      	<div class="date">
+      		(23.04.2019)
+      	</div>
+        <p>Hi guys! <br>
+          <br>
+          As a first article, I want to write about, how I have made this blog.<br>
+          Here we should use just HTML and CSS.<br>
+          <br>
+          <a href="https://en.wikipedia.org/wiki/HTML" target="_blank">HTML</a> (Hyper Text Markup Language) is the standard markup language <br>
+          for with whitch can create web pages and web applications.<br>
+          But for something bigger like web browser game you need to use other languages like JavaScript or PHP. <br>
+          And the whole design on html-sites is of course <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS</a> (Cascading Style Sheets), <br>
+          less with JS-animation.<br>
+          <br>
+          The idea to make my programming progress blog was coming from my father who is a programmer too.<br>
+          For better programming understanding. <br>
+          And at the same time, I got an invitation from my company to an HTML course.<br>
+          On the course, we have learned about making websites with HTML and CSS.<br>
+          <br>
+          Before this course, I have already used HTML and CSS a little bit.<br>
+          Probably it was first what I have practice learned. <br>
+          <br>
+          But I have written CSS code with HTML in the same document with a tag &ltstyle&gt. <br> <!--(here I have used &_lt &_gt, without ) -->
+          Like this:
+        </p>
+        <pre><code class="html">  &ltstyle type="text/css">
+      .websiteprogression{
+          background-color: grey;
+        }
+      p{
+          text-align: left;
+          margin: 0px 80px 10px;
+        }
+    &lt/style></code></pre>
+        <p>
+          Later, <br>
+          I learned that new <a href="https://validator.w3.org/" target="_blank">W3 validations</a> criterions mean that it would be better write CSS-styles separately.<br>
+          But sometimes if your code doesn't really big you can write your style code in HTML file.<br>
+          <br>
+          I can and I like to draw,<br>
+          but whatever you can see that the first time wasn’t that good.<br>
+          <a href="../../websiteprogression.html" target="_blank">Here</a> you can see blog appearance progression.<br>
+          First versions were so monotonous and flatly.<br>
+          ( And as a painter I don’t like too much white color on the screen, you can see that on the example of this page.<br>
+           &#160;&#160;But sure sometimes minimalistic design awesome, as an example <a href="https://www.google.com/" target="_blank"> Google Browser</a>.)<br> <!-- &#160; -> space -->
+          <br>
+          <br>
+          Now about programming.<br>
+          Probably this blog page doesn't complex:<br>
+          <br>
+          index.html is default main page of site on hosting must be named 'index' with expansion .html.<br>
+          <br>
+          main page code:<br>
+        </p>
+      <!-- посмотреть позже pre -->
+        <pre><code class="html">&lt!DOCTYPE html>
+      &lthtml type="en">
+        &lthead>
+          &lttitle>Programming Blog - Main&lt/title>
+          &ltlink rel="stylesheet" href="list.css" />
+          &ltlink rel="shortcut icon" href="logo16x16e.png" type="image/x-icon">    &lt!-- Browser window icon -->
+          &lth1>Programming Blog&lt/h1>
+          &ltimg src="logo.png" alt="Logo">
+        &lt/head>
+        &ltbody>
+            &ltheader>
+               &ltdiv id="list">
+                 &ltnav>
+                    &ltul>
+                        &ltli>&lta href="index.html">Main&lt/a>&lt/li>             &lt!-- Menu -->
+                        &ltli>&lta href="blog.html">Blog&lt/a>&lt/li>
+                        &ltli>&lta href="aboutme.html">About Me&lt/a>&lt/li>
+                    &lt/ul>
+                  &lt/nav>
+        	    &lt/div>
+            &lt/header>
+        &ltmain>
+        &ltp>Welcome Internet Argonauts&ltbr>
+        to my Programming Blog&ltbr>
+        hier im writing what i have learned in Programming&ltbr>
+      	&lt/p>
+      	&ltp>Good time of day!&lt/p>
+
+          &lth2>My Contact Information:&lt/h2>
+          &ltp class="phone">Tel. &ltbr>&lt/p>
+      	&ltimg src ="mail_1.png" alt="mail">
+              &lt/main>
+
+          &lt/body>
+
+          &ltfooter>
+
+            &ltscript>
+            window.onload = function() {
+            startTime();
+            };
+            &lt/script>
+
+            &ltdiv class="nixcont">
+
+                &ltdiv class="nixpair">
+                &ltscript src="index.js">&lt/script>
+
+          &lt/footer>
+      &lt/html>
+        </code></pre>
+        <p>
+          Html webpage usually parted on 2 or 3 parts: head body and footer. <br>
+          <ul>
+            <li>&lthead> used for help browser read information from the page, contained metatags.</li>
+            <li>&ltbody> is for webpage content.</li>
+            <li>&ltheader> same as a footer just here you can make site menu like me.</li>
+            <li>&ltfooter> is just a footer of the webpage where you can write for example about creator or date.</li>
+          </ul>
+          In head how i have already said we writing webpage information like <br>
+          site scc styles:
+        </p>
+        <pre><code class="html">&ltlink rel="stylesheet" href="list.css" /></code></pre>
+        <p>
+          -------------------------------------------------------------------------------------- <br>
+          title:<br>
+        </p>
+        <pre><code class="html">&lttitle>Programming Blog - Blog&lt/title></code></pre>
+        <p>
+          <input type="image" src="../../images/1/browserwindow_titel.PNG" onclick="window.open('../../images/1/browserwindow_titel.PNG')" height=50 width=auto/><br>
+          -------------------------------------------------------------------------------------- <br>
+          and website icon:
+        <p>
+        <pre><code class="html">&ltlink rel="shortcut icon" href="logo16x16e.png" type="image/x-icon"></code></pre>
+        <p>
+          <input type="image" src="../../images/1/browserwindow_icon.PNG" onclick="window.open('../../images/1/browserwindow_icon.PNG')" height=50 width=auto/><br>
+          -------------------------------------------------------------------------------------- <br>
+          <br>
+          In body, we have all after browser tabs.<br>
+          Probably here you work with your website.<br>
+          It's too much to write about all function of html<br>
+          so I wrote just about the menu which you can on the top.<br>
+          My menu is simply a list:</p><pre><code class="html">&ltheader>
+      &ltdiv id="list">
+          &ltnav>
+            &ltul>
+                &ltli>&lta href="index.html">Main&lt/a>&lt/li>
+                &ltli>&lta href="blog.html">Blog&lt/a>&lt/li>
+                &ltli>&lta href="aboutme.html">About Me&lt/a>&lt/li>
+            &lt/ul>
+          &lt/nav>
+      &lt/div>
+    &lt/header></code></pre>
+        <p>
+          &ltul> is defines an unordered (bulleted) list. With child &ltli> as one list string.<br>
+          And tag &lta> mean a link with attribute href="adress".<br>
+          So looks like &ltul> list without scc:</p><pre><code class="html">&ltul>
+        &ltli>cake&lt/li>
+        &ltli>muffin&lt/li>
+        &ltli>tee&lt/li>
+    &lt/ul></code></pre>
+        <p>
+          Browser:<br>
+          <ul>
+            <li>cake</li>
+            <li>muffin</li>
+    	       <li>tee</li>
+          </ul>
+          ----------------------------------------------------------------------------------------------<br>
+          Numbered list wit &ltol>:</p><pre><code class="html">&ltol>
+        &ltli>cake&lt/li>
+        &ltli>muffin&lt/li>
+        &ltli>tee&lt/li>
+    &lt/ol>
+
+    &ltol start = "100">
+        &ltli>cake&lt/li>
+        &ltli>muffin&lt/li>
+        &ltli>tee&lt/li>
+    &lt/ol></code></pre>
+        <p>
+          Browser:<br>
+          <ol>
+            <li>cake</li>
+            <li>muffin</li>
+            <li>tee</li>
+          </ol>
+          <ol start = "100">
+            <li>cake</li>
+            <li>muffin</li>
+            <li>tee</li>
+          </ol>
+          But with css it looks completely different(see website menu):</p><pre><code class="CSS">nav ul { /*Where should be this container (&ltdiv>) nav &ltul>*/
+        margin: 0; /*Sets the value of the fields around the contents of the element. Here without.*/
+        padding: 0; /*Sets the amount of padding from each edge of an element. Here without too.*/
+        text-align: center; /*Text in div should be on the middle.*/
+    }
+
+    nav li {  /*How would be &ltli> displayed*/
+        display: inline;
+    }
+
+    nav li a {  /*How will look element &lta>*/
+        display: inline-block;
+        text-decoration: none;
+        color: #FFFFE0;
+        padding: 1rem 1rem;
+    }</code></pre>
+        <p>
+          <br>
+          And special,<br>
+          You can see that if you hover by menu over an element with the cursor (mouse pointer)<br>
+          this sector will change color to red.<br>
+          For this effect you need to use pseudo-class :hover:</p><pre><code class="css">nav li a:hover {
+        background-color: #c21525;  /*Change background-color to red.*/
+        border: 2px double black;  /*Change border design.*/
+      }</code></pre>
+        <p>
+          <br>
+          Congratulation you have created the first website!<br>
+          Of course, it's simple but you can do much more with it,<br>
+          use JavaScript or CSS-animation and even more.<br>
+          <br>  <!--написать про то как загружать сайт на хостинг?-->
+          Do your own experiments!<br>
+          Luck!<br>
+          See you!<br>
+          <br>
+        	<!-- <a href="#" title="up" src="../../images/icons8-back-50.svg"><img src="../../images/icon_up.svg" class="topbutton"></a> -->
+        </p>
+    </div>
+  	  <a onclick="topButtonFunction();"><img src="../../images/icon_up_green.svg" class="topbutton"></a>
+      <p><a href="../../blog.html">Back</a></p>
+      <p><a href="../../index.html">Back to start</a></p>
+  </div>
+  <footer>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/topButton.js"></script>
+    <script>
+    	function swapStyleSheet(sheet){
+    		document.getElementById('pagestyle').setAttribute('href', sheet);
+    		localStorage.pagestyle = sheet;
+    	}
+
+    	function buttonCheckTheme(){
+    		if(localStorage.pagestyle === 'test.css'){
+    			swapStyleSheet('../../css/light.css');
+    			localStorage.pagestyle = 'light.css';
+    		}else{
+    			swapStyleSheet('../../css/test.css');
+    			localStorage.pagestyle = 'test.css';
+    		}
+    	}
+
+    	window.onload = function checkThemeOnLoad(){
+    		if(localStorage.pagestyle === 'test.css'){
+    			swapStyleSheet('../../css/test.css');
+    			localStorage.pagestyle = 'test.css';
+    		}else{
+    			swapStyleSheet('../../css/light.css');
+    			localStorage.pagestyle = 'light.css';
+    		}
+      }
+    </script>
+    </footer>
+  </div>
+</html>

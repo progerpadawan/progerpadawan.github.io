@@ -1,94 +1,38 @@
 html{
   overflow-x: hidden; /* Hide scrollbars */
-}
-
-.logo_header {
-  grid-area: header;
-}
-.menu {
-  grid-area: menu;
-}
-.blogmain {
-  grid-area: body;
-}
-
-.grid-container{
-  display: grid;
-  grid-gap: 0px;
-  grid-template-areas:
-    "header"
-    "menu"
-    "body"
-    "footer";
+  scroll-behavior: smooth;
 }
 
 body{
-  height: 100%;
-  width: 100%;
   font-family: 'Roboto', sans-serif;
-  background-color: #111122; /* black */
+  background-color: #111122;
   font-size: 22px;
-  margin: 0;
   color: white;
 
-
--webkit-animation: bgcolorchange 4s infinite; /* Chrome, Safari, Opera */
-  animation: 30s infinite bgcolorchange;
-}
-@keyframes bgcolorchange {
-  0% {
-    background-color: #111122;
+  -webkit-animation: bgcolorchange 4s infinite; /* Chrome, Safari, Opera */
+    animation: 30s infinite bgcolorchange;
   }
-  10% {
-    background-color: #111122;
+  @keyframes bgcolorchange {
+    0% {
+      background-color: #111122;
+    }
+    10% {
+      background-color: #111122;
+    }
+    50% {
+      background-color: black;
+    }
+    }
+    100% {
+      background-color: #111122;
+    }
   }
-  50% {
-    background-color: black;
-  }
-  }
-  100% {
-    background-color: #111122;
-  }
-}
-/* Chrome, Safari, Opera */
- @-webkit-keyframes bgcolorchange {
-      0%   {background: #111122;}
-      10%   {background: #111122;}
-      50%  {background: black;}
-      100% {background: #111122;}
-}
-
-.main{
-
-}
-
-.logo_header input{
-	position: relative;
-	left: 20px;
-	float: left;
-	width: 7%;
-	height: auto;
-}
-
-.logo_header h1{
-	position: relative;
-	top: 50px;
-	left: 20px;
-}
-.logo_header{
-
-	padding-bottom: 30px;
-}
-
-/* https://www.w3schools.com/css/css3_variables.asp */
-
-h1, h2, h3, h4, h5, h6, h7{
-	color: white;
-}
-
-main {
-  flex-grow: 1;
-	text-align: center;
+  /* Chrome, Safari, Opera */
+   @-webkit-keyframes bgcolorchange {
+        0%   {background: #111122;}
+        10%   {background: #111122;}
+        50%  {background: black;}
+        100% {background: #111122;}
 }
 
 nav ul {
@@ -121,28 +65,18 @@ hr{
 	border: 4px solid lightgreen;
 	/* darkviolet */
 }
-/* hr.vertical{ */
-	/* /*-webkit-transform:rotate(90deg);*/
-	/* transform: rotate(90deg); */
-/* } */
-
-/* .vl{ */
-	/* border-left: 6px solid lightgreen; */
-	/* height: 100px; */
-/* } */
-
-.blogmain{
-  text-align: left;
-  margin: 0px 5% 10px;
-	font-size: 20px;
-}
 
 .topbutton {
   text-align:center;
   position:fixed;
-  bottom:85px;
-  right:50px;
+  bottom:25px;
+  right:5px;
   cursor:pointer;
+  opacity: 0.5;
+}
+
+.topbutton:hover{
+  opacity: 1;
 }
 
 .change_color{
@@ -158,6 +92,7 @@ hr{
 	padding: 10px 30px;
 	cursor: pointer;
 }
+
 .change_language{
 	position: relative;
 	float: right;
@@ -170,6 +105,12 @@ hr{
 	color: white;
 	padding: 10px 30px;
 	cursor: pointer;
+}
+
+.blogmain{
+  text-align: left;
+  margin: 0px 5% 10px;
+	font-size: 20px;
 }
 
 .tip{
@@ -187,8 +128,29 @@ hr{
 	float: right;
 }
 
-/*https://medium.com/@dear_trudence/how-to-draw-vertical-and-diagonal-lines-with-html-and-css-9e8d7d9c59b2
-https://www.w3schools.com/howto/howto_css_style_hr.asp*/
+/* TOP LOGO */
+.logo_header input{
+	position: relative;
+	left: 20px;
+	float: left;
+	width: 7%;
+	height: auto;
+}
+
+.logo_header h1{
+	position: relative;
+	top: 50px;
+	left: 20px;
+}
+.logo_header{
+	padding-bottom: 30px;
+}
+
+/* Welcome text */
+main {
+  flex-grow: 1;
+	text-align: center;
+}
 
 /* Roboto */
 /* cyrillic-ext */
@@ -248,36 +210,6 @@ https://www.w3schools.com/howto/howto_css_style_hr.asp*/
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@media (max-width: 550px) {
-  body{
-	font-size: 20px;
-	padding: 0px 0px 50px 0px;
-  }
-.menu{
-	font-size: 15px;
-}
-.logo_header input{
-	display: none;
-}
-.logo_header h1{
-	position: relative;
-	top: 0px;
-	text-align:center;
-}
-.logo_header{
-	padding-bottom: 6px;
-}
-.change_color{
-	border: none;
-	font-size: 10px;
-	border-radius: 10px;
-	color: white;
-	padding: 10px 30px;
-	cursor: pointer;
-}
-}
-@media (max-width: 1100px) and (min-width: 551px) {
-  h1 {
-    margin-top: 70px;
-  }
-}
+/* @media (max-width: 550px) {
+
+} */
