@@ -1,3 +1,22 @@
+.logo_header {
+  grid-area: header;
+}
+.menu {
+  grid-area: menu;
+}
+.blogmain {
+  grid-area: body;
+}
+
+.grid-container{
+  display: grid;
+  grid-gap: 0px;
+  grid-template-areas:
+    "header"
+    "menu"
+    "body"
+    "footer";
+}
 
 body{
   height: 100%;
@@ -6,8 +25,8 @@ body{
   font-size: 22px;
   margin: 0;
   color: white;
-  
--webkit-animation: bgcolorchange 4s infinite; /* Chrome, Safari, Opera */ 
+
+-webkit-animation: bgcolorchange 4s infinite; /* Chrome, Safari, Opera */
   animation: 30s infinite bgcolorchange;
 }
 @keyframes bgcolorchange {
@@ -51,7 +70,7 @@ body{
 	left: 20px;
 }
 .logo_header{
-	
+
 	padding-bottom: 30px;
 }
 
@@ -107,43 +126,43 @@ hr{
 /* } */
 
 .blogmain{
-  	text-align: left;
-  	margin: 0px 5% 10px;
+  text-align: left;
+  margin: 0px 5% 10px;
 	font-size: 20px;
 }
 
 .topbutton {
-text-align:center;
-position:fixed;
-bottom:85px;
-right:50px;
-cursor:pointer;
+  text-align:center;
+  position:fixed;
+  bottom:85px;
+  right:50px;
+  cursor:pointer;
 }
 
 .change_color{
 	position: relative;
 	float: right;
 	right: 15px;
-	background: #f44336; 
-	size: 20%; 
-	border: none; 
-	font-size: 10px; 
-	border-radius: 10px; 
-	color: white; 
-	padding: 10px 30px; 
+	background: #f44336;
+	size: 20%;
+	border: none;
+	font-size: 10px;
+	border-radius: 10px;
+	color: white;
+	padding: 10px 30px;
 	cursor: pointer;
 }
 .change_language{
 	position: relative;
 	float: right;
 	right: 15px;
-	background: #7F00FF; 
-	size: 20%; 
-	border: none; 
-	font-size: 10px; 
-	border-radius: 10px; 
-	color: white; 
-	padding: 10px 30px; 
+	background: #7F00FF;
+	size: 20%;
+	border: none;
+	font-size: 10px;
+	border-radius: 10px;
+	color: white;
+	padding: 10px 30px;
 	cursor: pointer;
 }
 
@@ -155,12 +174,12 @@ cursor:pointer;
     margin-left: 60px;
     padding: 10px;
 }
-    
+
 .date{
 	position: relative;
 	right: 20px;
 	float: right;
-}	
+}
 
 /*https://medium.com/@dear_trudence/how-to-draw-vertical-and-diagonal-lines-with-html-and-css-9e8d7d9c59b2
 https://www.w3schools.com/howto/howto_css_style_hr.asp*/
@@ -226,7 +245,7 @@ https://www.w3schools.com/howto/howto_css_style_hr.asp*/
 @media (max-width: 550px) {
   body{
 	font-size: 20px;
-	padding: 0px 0px 50px 0px; 
+	padding: 0px 0px 50px 0px;
   }
 .menu{
 	font-size: 15px;
@@ -243,11 +262,11 @@ https://www.w3schools.com/howto/howto_css_style_hr.asp*/
 	padding-bottom: 6px;
 }
 .change_color{
-	border: none; 
-	font-size: 10px; 
-	border-radius: 10px; 
-	color: white; 
-	padding: 10px 30px; 
+	border: none;
+	font-size: 10px;
+	border-radius: 10px;
+	color: white;
+	padding: 10px 30px;
 	cursor: pointer;
 }
 }
