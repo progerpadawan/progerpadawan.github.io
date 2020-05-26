@@ -194,4 +194,13 @@ main {
   .change_color{
   	top: 180px;
   }
+  .change_language{
+  	left: 100px;
+}
+@media (max-width: 360px) {
+  .change_color{
+    left: 0px;
+  }
+  .change_language{
+  	left: 120px;
 }
