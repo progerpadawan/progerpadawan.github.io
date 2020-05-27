@@ -82,7 +82,8 @@ hr{
 .change_color{
 	position: relative;
 	float: right;
-	right: 15px;
+  top: -75px;
+	right: 12px;
 	background: #f44336;
 	size: 20%;
 	border: none;
@@ -96,6 +97,7 @@ hr{
 .change_language{
 	position: relative;
 	float: right;
+  top: -75px;
 	right: 15px;
 	background: #7F00FF;
 	size: 20%;
