@@ -1,263 +1,263 @@
 <!DOCTYPE html>
 <html type="en">
-    <head>
-        <title>Programming Blog - Blog</title>
-		    <meta property="og:title" content="Blog about programming!">
-        <meta property="og:site_name" content="Progerpadawan">
-        <meta property="og:url" content="https://progerpadawan.github.io/articles/eng/Blog5_DNS.html">
-        <meta property="og:description" content="№ 5 - configure a DNS Server">
-        <meta property="og:image" content="../../images/logo.png">
-
-    		<link rel="stylesheet" href="../../css/atom-one-dark.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link id="pagestyle" rel="stylesheet" href="../../css/dark.css"/>
-    		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+  <head>
+    <meta charset='utf-8'>
+    <title>Programming Blog - Blog</title>
+		<meta property="og:title" content="Blog about programming!">
+    <meta property="og:site_name" content="Progerpadawan">
+    <meta property="og:url" content="https://progerpadawan.github.io/articles/eng/Blog5_DNS.html">
+    <meta property="og:description" content="№ 5 - configure a DNS Server">
+    <meta property="og:image" content="../../images/logo.png">
+		<link rel="stylesheet" href="../../css/atom-one-dark.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link id="pagestyle" rel="stylesheet" href="../../css/dark.css"/>
+		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
 	</head>
 	<header>
-	<div class="logo_header">
-		<p>
-		<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
-		<h1>Programming Blog </h1>
-		</p>
-		<button class="change_color" onclick="buttonCheckTheme()">Change color</button>
-	</div>
-	<br>
-	<hr>
-	   <div class="menu">
-	   <nav>
-			<ul>
-				<li><a href="../../index.html">Main</a></li>
-				<li><a href="../../blog.html">Blog</a></li>
-				<li><a href="../../aboutme.html">About Me</a></li>
-			</ul>
-		</nav>
+  	<div class="logo_header">
+	  	<p>
+		    <input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+		    <h1>Programming Blog </h1>
+		  </p>
+		  <button class="change_color" onclick="buttonCheckTheme()">Change color</button>
+	  </div>
+	  <br>
+	  <hr>
+	  <div class="menu">
+	    <nav>
+			  <ul>
+				  <li><a href="../../index.html">Main</a></li>
+				  <li><a href="../../blog.html">Blog</a></li>
+				  <li><a href="../../aboutme.html">About Me</a></li>
+			  </ul>
+		  </nav>
 		</div>
-	<hr>
+	  <hr>
 	</header>
-        <main>
+  <main>
     <div class="blogmain">
-
-    <h2>Article - 05<br>
+      <h2>Article - 05<br>
       "Configure DNS Server"</h2>
-	<div class="date">
-		(22.10.2019)
-	</div>
-<br>
-    The DNS server is like an Internet phone book. It manages domain names and their IP address.<br>
-    This is necessary because it is not always easy for the user to enter IP addresses if<br>
-    you want to get on Google or Progerpadawan.com.<br>
-    If you want to go to Google.com for example,<br>
-    you do not have to enter 8.8.8.8, but you can simply enter "google.com".<br>
-<br>
-    Process of DNS searching and connection:<br>
-    <ol>
-        <li>The user(client) calls a website.</li>
-        <li>The client sends a request to the DNS server of the provider to get an IP.</li>
-        <li>If the DNS server of the provider doesn’t provide information <br>
-            about the requested Web page in its cache, it sends a request to the root DNS server</li>
-        <li>The DNS server looks for information on the website <br>
-            and sends the IP and stores everything in cash.</li>
-        <li>After that the connection is confirmed 3 times:<br>
-            1st time by the client, then by the server and again by the client.</li>
-        <li>Here we go the website appears</li>
-    </ol>
-    <strong>Domain namespace</strong><br>
-    The domain namespace can be displayed hierarchically in a tree structure.<br>
-    The leaves and nodes of the tree structure are also referred to as labels or levels. <br>
-    The full domain name (also FQDN = Fully Qualified Domain Name) results from linking these levels.<br>
-    Thus, the combinations of top-level domain, second-level domain (commonly referred to as domain)<br>
-    and subdomain the addresses www.domaindiscount24.com,<br>
-    shop.spiegel.de and de.wikipedia.org. (see example: tree structure domain namespace)<br>
-<br>
-    <strong>Resolver</strong><br>
-    A resolver is a program that obtains information from the domain name system.<br>
-    The program is a kind of switch between an application and the DNS.<br>
-    The resolver is integrated directly into TCP/IP and <br>
-    is available there as a software library for name resolution.<br>
-    The resolver is addressed with the functions "getHostByName" and "getHostByIp". <br>
-    It returns the IP address of a domain name or the main domain name of an IP address.<br>
-    For the resolver to work, it needs the IP address of one, better of two DNS servers,<br>
-    which must be entered in the IP configuration.<br>
-    As a rule, an IP host receives the IP address of the DNS server(s)<br>
-    via DHCP or the IP address must be entered manually.<br>
-<br>
-    <strong>Host file</strong><br>
-    The file consists of a tabular list of IP addresses and associated hostnames.<br>
-<br>
-    <strong>Forward Lookup Zones</strong><br>
-    Offer a resolution from name to address.<br>
-<br>
-    <strong>Reverse Lookup</strong><br>
-    Reverse lookup zones are optional and provide address-to-name resolution.<br>
-<br>
-    <strong>Test and control criteria</strong><br>
-    In order to be able to check whether the DNS server has been successfully configured <br>
-    and whether the server can also be reached, you can use 3 different tools:
-    <ul>
-      <li>The "Isdown Rightnow" WEBSITE verifies that the website is not accessible to all.</li>
-      <li>CMD <a href="https://en.wikipedia.org/wiki/Ping_(networking_utility)" target="_blank">ping &lthost name></a>, ping DNS address</li>
-      <li>CMD <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank">tracert &lthost name></a>, tracert DNS address</li>
-    </ul>
-<br>
-    <h4>Linux DNS Server</h4>
-    At Linux DNS server service named <a href="https://en.wikipedia.org/wiki/BIND" target="_blank">bind9</a><br>
-<br>
-    <div class="tip">
-      You can use same VMs from my previous article about <a href="file:///C:/Users/mzelensky.SOXESLOCAL/Downloads/progerpadawan.github.io/articles/eng/Blog4_DHCP.html" target="_blank">DHCP</a>
+	    <div class="date">
+		    (22.10.2019)
+	    </div>
+      <br>
+      <p>
+        The DNS server is like an Internet phone book. It manages domain names and their IP address.<br>
+        This is necessary because it is not always easy for the user to enter IP addresses if<br>
+        you want to get on Google or Progerpadawan.com.<br>
+        If you want to go to Google.com for example,<br>
+        you do not have to enter 8.8.8.8, but you can simply enter "google.com".<br>
+        <br>
+        Process of DNS searching and connection:<br>
+        <ol>
+          <li>The user(client) calls a website.</li>
+          <li>The client sends a request to the DNS server of the provider to get an IP.</li>
+          <li>If the DNS server of the provider doesn’t provide information <br>
+              about the requested Web page in its cache, it sends a request to the root DNS server</li>
+          <li>The DNS server looks for information on the website <br>
+              and sends the IP and stores everything in cash.</li>
+          <li>After that the connection is confirmed 3 times:<br>
+              1st time by the client, then by the server and again by the client.</li>
+          <li>Here we go the website appears</li>
+        </ol>
+        <strong>Domain namespace</strong><br>
+        The domain namespace can be displayed hierarchically in a tree structure.<br>
+        The leaves and nodes of the tree structure are also referred to as labels or levels. <br>
+        The full domain name (also FQDN = Fully Qualified Domain Name) results from linking these levels.<br>
+        Thus, the combinations of top-level domain, second-level domain (commonly referred to as domain)<br>
+        and subdomain the addresses www.domaindiscount24.com,<br>
+        shop.spiegel.de and de.wikipedia.org. (see example: tree structure domain namespace)<br>
+        <br>
+        <strong>Resolver</strong><br>
+        A resolver is a program that obtains information from the domain name system.<br>
+        The program is a kind of switch between an application and the DNS.<br>
+        The resolver is integrated directly into TCP/IP and <br>
+        is available there as a software library for name resolution.<br>
+        The resolver is addressed with the functions "getHostByName" and "getHostByIp". <br>
+        It returns the IP address of a domain name or the main domain name of an IP address.<br>
+        For the resolver to work, it needs the IP address of one, better of two DNS servers,<br>
+        which must be entered in the IP configuration.<br>
+        As a rule, an IP host receives the IP address of the DNS server(s)<br>
+        via DHCP or the IP address must be entered manually.<br>
+        <br>
+        <strong>Host file</strong><br>
+        The file consists of a tabular list of IP addresses and associated hostnames.<br>
+        <br>
+        <strong>Forward Lookup Zones</strong><br>
+        Offer a resolution from name to address.<br>
+        <br>
+        <strong>Reverse Lookup</strong><br>
+        Reverse lookup zones are optional and provide address-to-name resolution.<br>
+        <br>
+        <strong>Test and control criteria</strong><br>
+        In order to be able to check whether the DNS server has been successfully configured <br>
+        and whether the server can also be reached, you can use 3 different tools:
+        <ul>
+          <li>The "Isdown Rightnow" WEBSITE verifies that the website is not accessible to all.</li>
+          <li>CMD <a href="https://en.wikipedia.org/wiki/Ping_(networking_utility)" target="_blank">ping &lthost name></a>, ping DNS address</li>
+          <li>CMD <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank">tracert &lthost name></a>, tracert DNS address</li>
+        </ul>
+        <br>
+        <h4>Linux DNS Server</h4>
+        At Linux DNS server service named <a href="https://en.wikipedia.org/wiki/BIND" target="_blank">bind9</a><br>
+        <br>
+        <div class="tip">
+          You can use same VMs from my previous article about <a href="file:///C:/Users/mzelensky.SOXESLOCAL/Downloads/progerpadawan.github.io/articles/eng/Blog4_DHCP.html" target="_blank">DHCP</a>
+        </div>
+        <br>
+        We install bind9 with: <br>
+        <span style="background-color: #a9a9a9"> sudo apt-get update</span><br>
+        <span style="background-color: #a9a9a9"> sudo apt-get install bind9</span><br>
+        <input type="image" src="../../images/5/sau.png" onclick="window.open('../../images/5/sau.png')" height=auto width=30%/><br>
+        Let’s configure now:<br>
+        change named.conf.options in /etc/bind <br>
+        <span style="background-color: #a9a9a9"> sudo nano /etc/bind/named.conf.options</span><br>
+        from:<br>
+        <input type="image" src="../../images/5/conf1.png" onclick="window.open('../../images/5/conf1.png')" height=300 width=auto/><br>
+        to:<br>
+        <input type="image" src="../../images/5/conf2.png" onclick="window.open('../../images/5/conf2.png')" height=300 width=auto/><br>
+        <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
+        <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
+        <br>
+        Also we need change named.conf.local in /etc/bind <br>
+        <span style="background-color: #a9a9a9"> sudo nano /etc/bind/named.conf.local</span><br>
+        In DNS zones spelled out connections between domains and IP addresses.<br>
+        Here now adjust the two zones according to the picture:<br>
+        <input type="image" src="../../images/5/conf3.png" onclick="window.open('../../images/5/conf3.png')" height=300 width=auto/><br>
+        <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
+        <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
+        <br>
+        <br>
+        Now we will create two files with names from named.conf.local used default bind files.<br>
+        <br>
+        <strong>forward.local</strong><br>
+        <span style="background-color: #a9a9a9">sudo cp /etc/bind/db.local /etc/bind/forward.maxim.local</span><br>
+        <span style="background-color: #a9a9a9">sudo nano /etc/bind/forward.maxim.local</span><br>
+        <input type="image" src="../../images/5/conf5.png" onclick="window.open('../../images/5/conf5.png')" height=300 width=auto/><br>
+        Here you must enter the IP of the client and the corresponding domain name.<br>
+        <br>
+        <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
+        <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
+        <br>
+        <strong>reverse.local</strong><br>
+        <span style="background-color: #a9a9a9">sudo cp /etc/bind/db.127 /etc/bind/reverse.maxim.local</span><br>
+        <span style="background-color: #a9a9a9">sudo nano /etc/bind/reverse.maxim.local</span><br>
+        <input type="image" src="../../images/5/conf4.png" onclick="window.open('../../images/5/conf4.png')" height=300 width=auto/><br>
+        Adjust the IP of the client and the associated domain name according to the picture here.<br>
+        <br>
+        <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
+        <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
+        <br>
+        Now, to check our configurations, we can use:<br>
+        <span style="background-color: #a9a9a9"> sudo named-checkconf /etc/bind/named.conf.local</span><br>
+        <span style="background-color: #a9a9a9"> sudo named-checkzone maxim.local /etc/bind/forward.maxim.local</span><br>
+        <span style="background-color: #a9a9a9"> sudo named-checkzone maxim.local /etc/bind/reverse.maxim.local</span><br>
+        <input type="image" src="../../images/5/confcheck1.png" onclick="window.open('../../images/5/confcheck1.png')" height=150 width=auto/><br>
+        <br>
+        If all is OK – all is ok)<br>
+        <br>
+        With the command <br>
+        <span style="background-color: #a9a9a9"> </span>sudo systemctl restart bind9<br>
+        we restart our Bind9 DNS service.<br>
+        <br>
+        And check status with <br>
+        <span style="background-color: #a9a9a9">sudo systemctl status bind9 </span><br>
+        <input type="image" src="../../images/5/checkstatus.png" onclick="window.open('../../images/5/checkstatus.png')" height=300 width=auto/><br>
+        <br>
+        <h4>Windows Server</h4>
+        First, we need configure IP:<br>
+        Open Network&Internet Settings -> Ethernet2 -> network adapter options -> Internetprotokoll, Version 4 (TCP/IPv4)<br>
+        <input type="image" src="../../images/5/winconf1.png" onclick="window.open('../../images/5/winconf1.png')" height=300 width=auto/><br>
+        <input type="image" src="../../images/5/winconf2.png" onclick="window.open('../../images/5/winconf2.png')" height=300 width=auto/><br>
+        <br>
+        Now we open in the category Manage, "Add role and features"(Server-Rolle)<br>
+        <input type="image" src="../../images/5/winconf3.png" onclick="window.open('../../images/5/winconf3.png')" height=300 width=auto/><br>
+        <input type="image" src="../../images/5/winconf4.png" onclick="window.open('../../images/5/winconf4.png')" height=300 width=auto/><br>
+        <br>
+        For server roles, we select the DNS server.<br>
+        (The DHCP must also be installed.<br>
+        To install this one should go back to our previous documentation.)<br>
+        <br>
+        We now use the DNS administration tool of Windows.<br>
+        To open it, we use the Windows key and search for "DNS".<br>
+        <input type="image" src="../../images/5/winconf5.png" onclick="window.open('../../images/5/winconf5.png')" height=300 width=auto/><br>
+        <br>
+        In this tool, we will set up the DNS.<br>
+        Press the small arrows that are left of the folders so we can see all the subfolders.<br>
+        Right-click on Forward Lookup Zone and select New Zone.<br>
+        <input type="image" src="../../images/5/winconf6.png" onclick="window.open('../../images/5/winconf6.png')" height=200 width=auto/><br>
+        <br>
+        In this window enter "maxim.local"<br>
+        <input type="image" src="../../images/5/winconf7.png" onclick="window.open('../../images/5/winconf7.png')" height=300 width=auto/><br>
+        <br>
+        Select "Primary Zone"<br>
+        <input type="image" src="../../images/5/winconf8.png" onclick="window.open('../../images/5/winconf8.png')" height=300 width=auto/><br>
+        <br>
+        Now enter "maxim.local".<br>
+        Then press "Next" until the window closes.<br>
+        <input type="image" src="../../images/5/winconf9.png" onclick="window.open('../../images/5/winconf9.png')" height=300 width=auto/><br>
+        <br>
+        Now the reverse lookup zone is configured.<br>
+        Right-click Reverse Lookup Zone and select New Zone.<br>
+        <input type="image" src="../../images/5/winconf10.png" onclick="window.open('../../images/5/winconf10.png')" height=300 width=auto/>
+        <input type="image" src="../../images/5/winconf11.png" onclick="window.open('../../images/5/winconf11.png')" height=300 width=auto/><br>
+        <input type="image" src="../../images/5/winconf12.png" onclick="window.open('../../images/5/winconf12.png')" height=300 width=auto/><br>
+        <br>
+        Then select "maxim.local", right-click and select "New Host A"(“Neuer Host A”).<br>
+        <input type="image" src="../../images/5/winconf13.png" onclick="window.open('../../images/5/winconf13.png')" height=300 width=auto/><br>
+        <br>
+        After the new host (A) has been configured, we will have this picture in front of us.<br>
+        <input type="image" src="../../images/5/winconf14.png" onclick="window.open('../../images/5/winconf14.png')" height=300 width=auto/><br>
+        <br>
+        <br>
+        <h4>Windows client</h4>
+        Like with DHCP client just configure IP like on this picture:<br>
+        <input type="image" src="../../images/5/winconf15.png" onclick="window.open('../../images/5/winconf15.png')" height=300 width=auto/><br>
+        <br>
+        <h4>Test</h4>
+        Finally, we test the DNS server on our client by using <a href="https://en.wikipedia.org/wiki/Nslookup" target="_blank">nslookup</a><br>
+        <span style="background-color: #a9a9a9"> nslookup dns.maxim.local </span><br>
+        can check our connection.<br>
+        <input type="image" src="../../images/5/contest.png" onclick="window.open('../../images/5/contest.png')" height=400 width=auto/><br>
+        <br>
+        If this image matches your result, you have properly configured the DNS server!<br>
+        <br>
+      </p>
+		  <a onclick="topButtonFunction();"><img src="../../images/icon_up_green.svg" class="topbutton"></a>
+  		<p><a href="../../blog.html">Back</a></p>
+  		<p><a href="../../index.html">Back to start</a></p>
     </div>
-<br>
-    We install bind9 with: <br>
-    <span style="background-color: #a9a9a9"> sudo apt-get update</span><br>
-    <span style="background-color: #a9a9a9"> sudo apt-get install bind9</span><br>
-    <input type="image" src="../../images/5/sau.png" onclick="window.open('../../images/5/sau.png')" height=auto width=30%/><br>
-    Let’s configure now:<br>
-    change named.conf.options in /etc/bind <br>
-    <span style="background-color: #a9a9a9"> sudo nano /etc/bind/named.conf.options</span><br>
-    from:<br>
-    <input type="image" src="../../images/5/conf1.png" onclick="window.open('../../images/5/conf1.png')" height=300 width=auto/><br>
-    to:<br>
-    <input type="image" src="../../images/5/conf2.png" onclick="window.open('../../images/5/conf2.png')" height=300 width=auto/><br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
-<br>
-    Also we need change named.conf.local in /etc/bind <br>
-    <span style="background-color: #a9a9a9"> sudo nano /etc/bind/named.conf.local</span><br>
-    In DNS zones spelled out connections between domains and IP addresses.<br>
-    Here now adjust the two zones according to the picture:<br>
-    <input type="image" src="../../images/5/conf3.png" onclick="window.open('../../images/5/conf3.png')" height=300 width=auto/><br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
-<br>
-<br>
-    Now we will create two files with names from named.conf.local used default bind files.<br>
-<br>
-    <strong>forward.local</strong><br>
-    <span style="background-color: #a9a9a9">sudo cp /etc/bind/db.local /etc/bind/forward.maxim.local</span><br>
-    <span style="background-color: #a9a9a9">sudo nano /etc/bind/forward.maxim.local</span><br>
-    <input type="image" src="../../images/5/conf5.png" onclick="window.open('../../images/5/conf5.png')" height=300 width=auto/><br>
-    Here you must enter the IP of the client and the corresponding domain name.<br>
-<br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
-<br>
-    <strong>reverse.local</strong><br>
-    <span style="background-color: #a9a9a9">sudo cp /etc/bind/db.127 /etc/bind/reverse.maxim.local</span><br>
-    <span style="background-color: #a9a9a9">sudo nano /etc/bind/reverse.maxim.local</span><br>
-    <input type="image" src="../../images/5/conf4.png" onclick="window.open('../../images/5/conf4.png')" height=300 width=auto/><br>
-    Adjust the IP of the client and the associated domain name according to the picture here.<br>
-<br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span> to save<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> to exit<br>
-<br>
-    Now, to check our configurations, we can use:<br>
-    <span style="background-color: #a9a9a9"> sudo named-checkconf /etc/bind/named.conf.local</span><br>
-    <span style="background-color: #a9a9a9"> sudo named-checkzone maxim.local /etc/bind/forward.maxim.local</span><br>
-    <span style="background-color: #a9a9a9"> sudo named-checkzone maxim.local /etc/bind/reverse.maxim.local</span><br>
-    <input type="image" src="../../images/5/confcheck1.png" onclick="window.open('../../images/5/confcheck1.png')" height=150 width=auto/><br>
-<br>
-    If all is OK – all is ok)<br>
-<br>
-    With the command <br>
-    <span style="background-color: #a9a9a9"> </span>sudo systemctl restart bind9<br>
-    we restart our Bind9 DNS service.<br>
-<br>
-    And check status with <br>
-    <span style="background-color: #a9a9a9">sudo systemctl status bind9 </span><br>
-    <input type="image" src="../../images/5/checkstatus.png" onclick="window.open('../../images/5/checkstatus.png')" height=300 width=auto/><br>
-<br>
-    <h4>Windows Server</h4>
-    First, we need configure IP:<br>
-    Open Network&Internet Settings -> Ethernet2 -> network adapter options -> Internetprotokoll, Version 4 (TCP/IPv4)<br>
-    <input type="image" src="../../images/5/winconf1.png" onclick="window.open('../../images/5/winconf1.png')" height=300 width=auto/><br>
-    <input type="image" src="../../images/5/winconf2.png" onclick="window.open('../../images/5/winconf2.png')" height=300 width=auto/><br>
-<br>
-    Now we open in the category Manage, "Add role and features"(Server-Rolle)<br>
-    <input type="image" src="../../images/5/winconf3.png" onclick="window.open('../../images/5/winconf3.png')" height=300 width=auto/><br>
-    <input type="image" src="../../images/5/winconf4.png" onclick="window.open('../../images/5/winconf4.png')" height=300 width=auto/><br>
-<br>
-    For server roles, we select the DNS server.<br>
-    (The DHCP must also be installed.<br>
-    To install this one should go back to our previous documentation.)<br>
-<br>
-    We now use the DNS administration tool of Windows.<br>
-    To open it, we use the Windows key and search for "DNS".<br>
-    <input type="image" src="../../images/5/winconf5.png" onclick="window.open('../../images/5/winconf5.png')" height=300 width=auto/><br>
-<br>
-    In this tool, we will set up the DNS.<br>
-    Press the small arrows that are left of the folders so we can see all the subfolders.<br>
-    Right-click on Forward Lookup Zone and select New Zone.<br>
-    <input type="image" src="../../images/5/winconf6.png" onclick="window.open('../../images/5/winconf6.png')" height=200 width=auto/><br>
-<br>
-    In this window enter "maxim.local"<br>
-    <input type="image" src="../../images/5/winconf7.png" onclick="window.open('../../images/5/winconf7.png')" height=300 width=auto/><br>
-<br>
-    Select "Primary Zone"<br>
-    <input type="image" src="../../images/5/winconf8.png" onclick="window.open('../../images/5/winconf8.png')" height=300 width=auto/><br>
-<br>
-    Now enter "maxim.local".<br>
-    Then press "Next" until the window closes.<br>
-    <input type="image" src="../../images/5/winconf9.png" onclick="window.open('../../images/5/winconf9.png')" height=300 width=auto/><br>
-<br>
-    Now the reverse lookup zone is configured.<br>
-    Right-click Reverse Lookup Zone and select New Zone.<br>
-    <input type="image" src="../../images/5/winconf10.png" onclick="window.open('../../images/5/winconf10.png')" height=300 width=auto/>
-    <input type="image" src="../../images/5/winconf11.png" onclick="window.open('../../images/5/winconf11.png')" height=300 width=auto/><br>
-    <input type="image" src="../../images/5/winconf12.png" onclick="window.open('../../images/5/winconf12.png')" height=300 width=auto/><br>
-<br>
-    Then select "maxim.local", right-click and select "New Host A"(“Neuer Host A”).<br>
-    <input type="image" src="../../images/5/winconf13.png" onclick="window.open('../../images/5/winconf13.png')" height=300 width=auto/><br>
-<br>
-    After the new host (A) has been configured, we will have this picture in front of us.<br>
-    <input type="image" src="../../images/5/winconf14.png" onclick="window.open('../../images/5/winconf14.png')" height=300 width=auto/><br>
-<br>
-<br>
-    <h4>Windows client</h4>
-    Like with DHCP client just configure IP like on this picture:<br>
-    <input type="image" src="../../images/5/winconf15.png" onclick="window.open('../../images/5/winconf15.png')" height=300 width=auto/><br>
-<br>
-    <h4>Test</h4>
-    Finally, we test the DNS server on our client by using <a href="https://en.wikipedia.org/wiki/Nslookup" target="_blank">nslookup</a><br>
-    <span style="background-color: #a9a9a9"> nslookup dns.maxim.local </span><br>
-    can check our connection.<br>
-    <input type="image" src="../../images/5/contest.png" onclick="window.open('../../images/5/contest.png')" height=400 width=auto/><br>
-<br>
-    If this image matches your result, you have properly configured the DNS server!<br>
-<br>
-		<a onclick="topButtonFunction();"><img src="../../images/icon_up.svg" class="topbutton"></a>
-		<p><a href="../../blog.html">Back</a></p>
-		<p><a href="../../index.html">Back to start</a></p>
-</div>
-        </main>
-    </body>
-    <footer>
-		<script src="../../js/highlight.pack.js"></script>
-		 <script>hljs.initHighlightingOnLoad();</script>
-		 <script src="../../js/topButton.js"></script>
+  </main>
+  <footer>
+  	<script src="../../js/highlight.pack.js"></script>
+	  <script>hljs.initHighlightingOnLoad();</script>
+	  <script src="../../js/topButton.js"></script>
+	  <script>
+	    function swapStyleSheet(sheet){
+				document.getElementById('pagestyle').setAttribute('href', sheet);
+				localStorage.pagestyle = sheet;
+			}
 
-		<script>
-				function swapStyleSheet(sheet){
-					document.getElementById('pagestyle').setAttribute('href', sheet);
-					localStorage.pagestyle = sheet;
+			function buttonCheckTheme(){
+				if(localStorage.pagestyle === 'dark.css'){
+					swapStyleSheet('../../css/light.css');
+					localStorage.pagestyle = 'light.css';
+				}else{
+					swapStyleSheet('../../css/dark.css');
+					localStorage.pagestyle = 'dark.css';
 				}
+			}
 
-				function buttonCheckTheme(){
-					if(localStorage.pagestyle === 'dark.css'){
-						swapStyleSheet('../../css/light.css');
-						localStorage.pagestyle = 'light.css';
-					}else{
-						swapStyleSheet('../../css/dark.css');
-						localStorage.pagestyle = 'dark.css';
-					}
+			window.onload = function checkThemeOnLoad(){
+				if(localStorage.pagestyle === 'dark.css'){
+					swapStyleSheet('../../css/dark.css');
+					localStorage.pagestyle = 'dark.css';
+				}else{
+					swapStyleSheet('../../css/light.css');
+					localStorage.pagestyle = 'light.css';
 				}
-
-				window.onload = function checkThemeOnLoad(){
-					if(localStorage.pagestyle === 'dark.css'){
-						swapStyleSheet('../../css/dark.css');
-						localStorage.pagestyle = 'dark.css';
-					}else{
-						swapStyleSheet('../../css/light.css');
-						localStorage.pagestyle = 'light.css';
-					}
-		}</script>
-    </footer>
+      }
+    </script>
+  </footer>
 </html>

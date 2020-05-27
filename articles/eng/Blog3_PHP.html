@@ -1,310 +1,298 @@
 <!DOCTYPE html>
 <html type="en">
-    <head>
-        <title>Programming Blog - Blog</title>
+  <head>
+    <meta charset='utf-8'>
+    <title>Programming Blog - Blog</title>
 		<meta property="og:title" content="Blog about programming!">
-        <meta property="og:site_name" content="Progerpadawan">
-        <meta property="og:url" content="https://progerpadawan.github.io/articles/eng/Blog3_PHP.html">
-        <meta property="og:description" content="№ 3 - creating a PHP contact form">
-        <meta property="og:image" content="../../images/logo.png">
-		
+    <meta property="og:site_name" content="Progerpadawan">
+    <meta property="og:url" content="https://progerpadawan.github.io/articles/eng/Blog3_PHP.html">
+    <meta property="og:description" content="№ 3 - creating a PHP contact form">
+    <meta property="og:image" content="../../images/logo.png">
 		<link rel="stylesheet" href="../../css/atom-one-dark.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link id="pagestyle" rel="stylesheet" href="../../css/dark.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link id="pagestyle" rel="stylesheet" href="../../css/dark.css"/>
 		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
 	</head>
 	<header>
-	<div class="logo_header">
-		<p>
-		<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
-		<h1>Programming Blog </h1>
-		</p>
-		<button class="change_color" onclick="buttonCheckTheme()">Change color</button>
-	</div>
-	<br>
-	<hr>
-	   <div class="menu">
-	   <nav>
-			<ul>
-				<li><a href="../../index.html">Main</a></li>
-				<li><a href="../../blog.html">Blog</a></li>
-				<li><a href="../../aboutme.html">About Me</a></li>
-			</ul>
-		</nav>
-		</div>
-	<hr>
+  	<div class="logo_header">
+  		<p>
+  		<input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+  		<h1>Programming Blog </h1>
+  		</p>
+  		<button class="change_color" onclick="buttonCheckTheme()">Change color</button>
+  	</div>
+  	<br>
+  	<hr>
+  	<div class="menu">
+  	  <nav>
+  		  <ul>
+  			  <li><a href="../../index.html">Main</a></li>
+  				<li><a href="../../blog.html">Blog</a></li>
+  				<li><a href="../../aboutme.html">About Me</a></li>
+  			</ul>
+  		</nav>
+  	</div>
+  	<hr>
 	</header>
-        <main>
+  <main>
     <div class="blogmain">
-
-    <h2>Article - 03<br>
+      <h2>Article - 03<br>
       "Contact me - PHP contact form"</h2>
-	<div class="date">
-		(09.07.2019)
-	</div>
-	
-    Hello, everybody! <br>
-<br>
-    How about to create a contact form, using just PHP?<br>
-	I created one for my old website,<br>
-<br>
-    Before I don't have used or learned php.<br>
-    And this contact form is my first experience with php.<br>
-    <a href="https://en.wikipedia.org/wiki/PHP" target="_blank">PHP</a> (Personal Home Page tools) is a general-purpose programming language,<br>
-    originally designed for web development.<br>
-    Давайте начнем!<br>
-<br>
-    Before we start coding you need to create and run our own Apache server.<br>
-    I have used <a href="https://www.apachefriends.org/index.html" target="_blank">XAMPP Control Panel</a><br>
-    After downloading Xampp just start an Apache Server.<br>
-<br>
-    <input type="image" src="../../images/3/xampp1.jpg" onclick="window.open('../../images/3/xampp1.jpg')" height=300 width=auto/><br>
-    <input type="image" src="../../images/3/xampp2.jpg" onclick="window.open('../../images/3/xampp2.jpg')" height=300 width=auto/><br>
-<br>
-    With Xampp downloading would be automatically created xampp folder on the disk C.<br>
+    	<div class="date">
+    		(09.07.2019)
+    	</div>
+      <p>
+        Hello, everybody! <br>
+        <br>
+        How about to create a contact form, using just PHP?<br>
+    	  I created one for my old website,<br>
+        <br>
+        Before I don't have used or learned php.<br>
+        And this contact form is my first experience with php.<br>
+        <a href="https://en.wikipedia.org/wiki/PHP" target="_blank">PHP</a> (Personal Home Page tools) is a general-purpose programming language,<br>
+        originally designed for web development.<br>
+        Давайте начнем!<br>
+        <br>
+        Before we start coding you need to create and run our own Apache server.<br>
+        I have used <a href="https://www.apachefriends.org/index.html" target="_blank">XAMPP Control Panel</a><br>
+        After downloading Xampp just start an Apache Server.<br>
+        <br>
+        <input type="image" src="../../images/3/xampp1.jpg" onclick="window.open('../../images/3/xampp1.jpg')" height=300 width=auto/><br>
+        <input type="image" src="../../images/3/xampp2.jpg" onclick="window.open('../../images/3/xampp2.jpg')" height=300 width=auto/><br>
+        <br>
+        With Xampp downloading would be automatically created xampp folder on the disk C.<br>
+        <input type="image" src="../../images/3/xampp_explorer1.jpg" onclick="window.open('../../images/3/xampp_explorer1.jpg')" height=auto width=50%/><br>
+        <br>
+        There you need folder htdocs:<br>
+        <input type="image" src="../../images/3/xampp_explorer2.jpg" onclick="window.open('../../images/3/xampp_explorer2.jpg')" height=auto width=55%/><br>
+        <br>
+        And it's your main folder where you should work.<br>
+        Now let's create here index.php file.<br>
+        <h4>Echo: "hello world!"</h4>
+      </p>
+        <pre><code class="html">&lthtml>
+     &lthead>
+      &lttitle>Test PHP - Hello world!&lt/title>
+     &lt/head>
+      &ltbody>
+         &lt?php echo '&ltp>Hello world!&lt/p>'; ?>
+      &lt/body>
+    &lt/html></code></pre>
+      <p>or just so: </p><pre><code class="html">&lthtml>
+     &lthead>
+      &lttitle>Test PHP - Hello world!&lt/title>
+     &lt/head>
+      &ltbody>
+         &lt?php echo 'Hello world!'; ?> //echo is the same as just print.
+      &lt/body>
+    &lt/html></code></pre>
+      <p>
+        Compared with html you can't open .php file just in the browser,<br>
+        you need first to connect to the server<br>
+        and for this, you need xampp.<br>
+        <br>
+        If you are already <a href="../../images/3/xampp2.jpg" target="_blank">connected</a><br>
+        go to the browser on <a href="http://localhost/" target="_blank">http://localhost/</a>.<br>
+        You should see something like this:<br>
+        <input type="image" src="../../images/3/xampp_helloworld_browser.jpg" onclick="window.open('../../images/3/xampp_helloworld_browser.jpg')" height=50% width=auto/><br>
+        <br>
+        How we can see with php you need to use html to<br>
+        and for php commands &ltphp "command;" ?>.<br>
+        <br>
+        Now to contact form.<br>
+        <br>
+        It's my version and I'm not 100% sure that it's completely right construction.<br>
+        But it works.<br>
+        <br>
+        In index.php we need to create a contact form which sends data to the server<br>
+        and we need to collect them.<br>
+        <br>
+        Contact form (index.php):</p><pre><code class="html">&lt!DOCTYPE html>
+    &lthtml lang="en" dir="ltr">
+      &lthead>
+        &ltmeta charset="utf-8">
+        &lttitle>&lt/title>
+      &lt/head>
+      &ltbody>
+        &lt?php
+          $_POST
+         ?>
+        &ltform action="welcome.php" method="post">
+          &ltinput type="text" name="name" placeholder="Name" maxlength="25">&ltbr> &lt!--&ltbr> used to wrap text/object-->
+          &ltinput type="email" name="email" placeholder="E-mail" maxlength="25">&ltbr>
+          &ltinput type="text" name="subject" placeholder="Subject" maxlength="25">&ltbr>
+         &ltbr>
+          &lttextarea type="text" name="text" placeholder="Message" maxlength="300" rows="10px" cols="35px">&lt/textarea>&ltbr>
+         &ltbr>
+          &ltinput type="submit">
+        &lt/form>
+      &lt/body>
+    &lt/html></code></pre>
+      <p>
+        <input type="image" src="../../images/3/form_input.jpg" onclick="window.open('../../images/3/form_input.jpg')" height=auto width=30%/><br>
+        We have created a form with &ltform>)<br>
+        With action to file welcome.php with method <a href="https://www.w3schools.com/tags/att_form_method.asp" target="_blank">get or post</a>.<br>
+        It means when you click on the submit button (&ltinput type="submit">)<br>
+        result of this form would be saved/showed on this (welcome.php) file.<br>
+        It's like we create a bridge between these two files with a server on the middle/end.<br>
+        <br>
+        In this form, we have created an input window for name/email/subject, text window<br>
+        and submit the bottom.<br>
+        For each input we prescribe data type (type="type"),<br>
+        like text for text and email for emails, genial.<br>
+        <input type="image" src="../../images/3/form_input_email.jpg" onclick="window.open('../../images/3/form_input_email.jpg')" height=auto width=30%/><br>
+        In the same time, we can prescribe the maximum length of input with maxlength="25"<br>
+        and you can write something in the input window with attribute placeholder="write something",<br>
+        a user would see this before he started something to write.<br>
+        <input type="image" src="../../images/3/form_input_placeholder.jpg" onclick="window.open('../../images/3/form_input_placeholder.jpg')" height=auto width=30%/><br>
+        We have contact form information which would be sent.<br>
+        But we need to collect them.<br>
+        And this we do in the second file (welcome.php).<br></p><pre><code class="html">&lt!DOCTYPE html>
+    &lthtml lang="en" dir="ltr">
+      &lthead>
+        &ltmeta charset="utf-8">
+        &lttitle>&lt/title>
+      &lt/head>
+        &ltbody>
+          &lt?php
+            $name = $_POST["name"];
+            $email = $_POST["email"];
+            $subject = $_POST["subject"];
+            $text = $_POST["text"];
+            $date = date("h:i:sa [d.m.Y]");
+            $br = "\n";
+            $line = "-------------------------";
 
-    <input type="image" src="../../images/3/xampp_explorer1.jpg" onclick="window.open('../../images/3/xampp_explorer1.jpg')" height=auto width=50%/><br>
+            echo $date;
+            echo "&ltbr>";
+            echo "name is: " . $name;
+            echo "&ltbr>";
+            echo "email is: " . $email;
+            echo "&ltbr>";
+            echo "subject is: " . $subject;
+            echo "&ltbr>";
+            echo "message: " . $text;
+            echo "&ltbr>";
+            echo $line;
+            echo "&ltbr>";
+           ?>
+        &lt/body>
+    &lt/html></code></pre>
+      <p>
+        You see we create variables with symbol $<br>
+        and move with method <a href="https://www.php.net/manual/en/reserved.variables.post.php" target="_blank">$_POST</a> or <a href="https://www.php.net/manual/en/reserved.variables.get.php" target="_blank">$_GET</a>from a contact form to these variables.<br>
+        In the square brackets, we need  to write wich input name from index.php would be saved in a variable.<br></p><pre><code class=html>&ltinput type="text" name="name">
+    ---------------------------------------------------
+    $name = $_POST[<font color=lightgreen>"name"</font>];</code></pre>
+    or
+    <pre><code class=html>&ltinput type="email" name="email">
+    ---------------------------------------------------
+    $email = $_POST[<font color=lightgreen>"email"</font>];</code></pre>
+      <p>
+        It should look like this:<br>
+        <input type="image" src="../../images/3/form_output.jpg" onclick="window.open('../../images/3/form_output.jpg')" height=auto width=30%/><br>
+        Now we can write -> send -> read inputs<br>
+        But we need to save it too.<br>
+        I have made so - If you clicked on submit you will be sent to welcome.php<br>
+        and your inputs would be saved in log.txt<br>
+        welcome.php: </p><pre><code class=html>&lt!DOCTYPE html>
+    &lthtml lang="en" dir="ltr">
+      &lthead>
+        &ltmeta charset="utf-8">
+        &lttitle>&lt/title>
+      &lt/head>
+      &ltbody>
+        &lt?php
+          $name = $_POST["name"];
+          $email = $_POST["email"];
+          $subject = $_POST["subject"];
+          $text = $_POST["text"];
+          $date = date("h:i:sa [d.m.Y]");
+          $br = "\n";
+          $line = "-------------------------";
 
-<br>
-    There you need folder htdocs:<br>
-
-    <input type="image" src="../../images/3/xampp_explorer2.jpg" onclick="window.open('../../images/3/xampp_explorer2.jpg')" height=auto width=55%/><br>
-
-<br>
-    And it's your main folder where you should work.<br>
-    Now let's create here index.php file.<br>
-
-    <h4>Echo: "hello world!"</h4>
-
-    <pre><code class="html">&lthtml>
- &lthead>
-  &lttitle>Test PHP - Hello world!&lt/title>
- &lt/head>
-  &ltbody>
-     &lt?php echo '&ltp>Hello world!&lt/p>'; ?>
-  &lt/body>
-&lt/html></code></pre>
-    or just so:<pre><code class="html">&lthtml>
- &lthead>
-  &lttitle>Test PHP - Hello world!&lt/title>
- &lt/head>
-  &ltbody>
-     &lt?php echo 'Hello world!'; ?> //echo is the same as just print.
-  &lt/body>
-&lt/html></code></pre>
-    Compared with html you can't open .php file just in the browser,<br>
-    you need first to connect to the server<br>
-    and for this, you need xampp.<br>
-<br>
-    If you are already <a href="../../images/3/xampp2.jpg" target="_blank">connected</a><br>
-    go to the browser on <a href="http://localhost/" target="_blank">http://localhost/</a>.<br>
-    You should see something like this:<br>
-
-    <input type="image" src="../../images/3/xampp_helloworld_browser.jpg" onclick="window.open('../../images/3/xampp_helloworld_browser.jpg')" height=50% width=auto/><br>
-
-<br>
-    How we can see with php you need to use html to<br>
-    and for php commands &ltphp "command;" ?>.<br>
-<br>
-    Now to contact form.<br>
-<br>
-    It's my version and I'm not 100% sure that it's completely right construction.<br>
-    But it works.<br>
-<br>
-    In index.php we need to create a contact form which sends data to the server<br>
-    and we need to collect them.<br>
-<br>
-    Contact form (index.php):<pre><code class="html">&lt!DOCTYPE html>
-&lthtml lang="en" dir="ltr">
-  &lthead>
-    &ltmeta charset="utf-8">
-    &lttitle>&lt/title>
-  &lt/head>
-  &ltbody>
-    &lt?php
-      $_POST
-     ?>
-    &ltform action="welcome.php" method="post">
-      &ltinput type="text" name="name" placeholder="Name" maxlength="25">&ltbr> &lt!--&ltbr> used to wrap text/object-->
-      &ltinput type="email" name="email" placeholder="E-mail" maxlength="25">&ltbr>
-      &ltinput type="text" name="subject" placeholder="Subject" maxlength="25">&ltbr>
-     &ltbr>
-      &lttextarea type="text" name="text" placeholder="Message" maxlength="300" rows="10px" cols="35px">&lt/textarea>&ltbr>
-     &ltbr>
-      &ltinput type="submit">
-    &lt/form>
-  &lt/body>
-&lt/html></code></pre>
-
-    <input type="image" src="../../images/3/form_input.jpg" onclick="window.open('../../images/3/form_input.jpg')" height=auto width=30%/><br>
-
-    We have created a form with &ltform>)<br>
-    With action to file welcome.php with method <a href="https://www.w3schools.com/tags/att_form_method.asp" target="_blank">get or post</a>.<br>
-    It means when you click on the submit button (&ltinput type="submit">)<br>
-    result of this form would be saved/showed on this (welcome.php) file.<br>
-    It's like we create a bridge between these two files with a server on the middle/end.<br>
-<br>
-    In this form, we have created an input window for name/email/subject, text window<br>
-    and submit the bottom.<br>
-    For each input we prescribe data type (type="type"),<br>
-    like text for text and email for emails, genial.<br>
-
-    <input type="image" src="../../images/3/form_input_email.jpg" onclick="window.open('../../images/3/form_input_email.jpg')" height=auto width=30%/><br>
-
-    In the same time, we can prescribe the maximum length of input with maxlength="25"<br>
-    and you can write something in the input window with attribute placeholder="write something",<br>
-    a user would see this before he started something to write.<br>
-
-    <input type="image" src="../../images/3/form_input_placeholder.jpg" onclick="window.open('../../images/3/form_input_placeholder.jpg')" height=auto width=30%/><br>
-
-    We have contact form information which would be sent.<br>
-    But we need to collect them.<br>
-    And this we do in the second file (welcome.php).<br><pre><code class="html">&lt!DOCTYPE html>
-&lthtml lang="en" dir="ltr">
-  &lthead>
-    &ltmeta charset="utf-8">
-    &lttitle>&lt/title>
-  &lt/head>
-    &ltbody>
-      &lt?php
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $subject = $_POST["subject"];
-        $text = $_POST["text"];
-        $date = date("h:i:sa [d.m.Y]");
-        $br = "\n";
-        $line = "-------------------------";
-
-        echo $date;
-        echo "&ltbr>";
-        echo "name is: " . $name;
-        echo "&ltbr>";
-        echo "email is: " . $email;
-        echo "&ltbr>";
-        echo "subject is: " . $subject;
-        echo "&ltbr>";
-        echo "message: " . $text;
-        echo "&ltbr>";
-        echo $line;
-        echo "&ltbr>";
-       ?>
-    &lt/body>
-&lt/html></code></pre>
-    You see we create variables with symbol $<br>
-    and move with method <a href="https://www.php.net/manual/en/reserved.variables.post.php" target="_blank">$_POST</a> or <a href="https://www.php.net/manual/en/reserved.variables.get.php" target="_blank">$_GET</a>from a contact form to these variables.<br>
-    In the square brackets, we need  to write wich input name from index.php would be saved in a variable.<br><pre><code class=html>&ltinput type="text" name="name">
----------------------------------------------------
-$name = $_POST[<font color=lightgreen>"name"</font>];</code></pre>
-or
-<pre><code class=html>&ltinput type="email" name="email">
----------------------------------------------------
-$email = $_POST[<font color=lightgreen>"email"</font>];</code></pre>
-
-    It should look like this:<br>
-
-    <input type="image" src="../../images/3/form_output.jpg" onclick="window.open('../../images/3/form_output.jpg')" height=auto width=30%/><br>
-
-    Now we can write -> send -> read inputs<br>
-    But we need to save it too.<br>
-    I have made so - If you clicked on submit you will be sent to welcome.php<br>
-    and your inputs would be saved in log.txt<br>
-    welcome.php: <pre><code class=html>&lt!DOCTYPE html>
-&lthtml lang="en" dir="ltr">
-  &lthead>
-    &ltmeta charset="utf-8">
-    &lttitle>&lt/title>
-  &lt/head>
-  &ltbody>
-    &lt?php
-      $name = $_POST["name"];
-      $email = $_POST["email"];
-      $subject = $_POST["subject"];
-      $text = $_POST["text"];
-      $date = date("h:i:sa [d.m.Y]");
-      $br = "\n";
-      $line = "-------------------------";
-
-      $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "date: " . $date.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "name: " . $name.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "email: " . $email.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "subject: " . $subject.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "message: " . $text.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', $br.PHP_EOL , FILE_APPEND | LOCK_EX);
-     ?>
-  &lt/body>
-&lt/html>
-</code></pre>
-    See I don't use echo because the user doesn't need to see his letter.<br>
-    Instead of this, we create logs.txt<br>
-    (you don't need to create a file by yourself, php would automatically create a file if it doesn't yet)<br>
-    and write their variables content.<br>
-
-    <pre><code class = php>$log = file_put_contents(<u>'logs.txt'</u>, <u>$line</u>.PHP_EOL , FILE_APPEND | LOCK_EX);</code></pre>
-
-    Sure it would be much more convenient if you will know the date when a letter was sent. <pre><code class="php">$date = date("h:i:sa [d.m.Y]");</code></pre>
-
-    The server can self check the time without scripts.<br>
-    Just write how you want to see time (which <a href="https://www.php.net/manual/en/function.date.php" target="_blank">format</a>).<br>
-<br>
-    I have a little bit played with logs design too and the result must be something like this:<br>
-<br>
-    -------------------------<br>
-    date: 02:01:13pm [25.03.2019]<br>
-    name: Max<br>
-    email: email@email.email<br>
-    subject: test 1<br>
-    message: Hi<br>
-    -------------------------<br>
-<br>
-<br>
-    -------------------------<br>
-    date: 02:08:35pm [25.04.2019]<br>
-    name: Max<br>
-    email: email@email.email<br>
-    subject: test 2<br>
-    message: Hi again<br>
-    -------------------------<br>
-<br>
-    Probably it's all,<br>
-    we have created a contact form on php!<br>
-<br>
-		<a onclick="topButtonFunction();"><img src="../../images/icon_up.svg" class="topbutton"></a>
-		<p><a href="../../blog.html">Back</a></p>
-		<p><a href="../../index.html">Back to start</a></p>
-</div>
-        </main>
-    </body>
-    <footer>
-		<script src="../../js/highlight.pack.js"></script>
-		 <script>hljs.initHighlightingOnLoad();</script>
-		 <script src="../../js/topButton.js"></script>
-
+          $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
+          $log = file_put_contents('logs.txt', "date: " . $date.PHP_EOL , FILE_APPEND | LOCK_EX);
+          $log = file_put_contents('logs.txt', "name: " . $name.PHP_EOL , FILE_APPEND | LOCK_EX);
+          $log = file_put_contents('logs.txt', "email: " . $email.PHP_EOL , FILE_APPEND | LOCK_EX);
+          $log = file_put_contents('logs.txt', "subject: " . $subject.PHP_EOL , FILE_APPEND | LOCK_EX);
+          $log = file_put_contents('logs.txt', "message: " . $text.PHP_EOL , FILE_APPEND | LOCK_EX);
+          $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
+          $log = file_put_contents('logs.txt', $br.PHP_EOL , FILE_APPEND | LOCK_EX);
+         ?>
+      &lt/body>
+    &lt/html>
+    </code></pre>
+      <p>
+        See I don't use echo because the user doesn't need to see his letter.<br>
+        Instead of this, we create logs.txt<br>
+        (you don't need to create a file by yourself, php would automatically create a file if it doesn't yet)<br>
+        and write their variables content.<br>
+      </p>
+        <pre><code class = php>$log = file_put_contents(<u>'logs.txt'</u>, <u>$line</u>.PHP_EOL , FILE_APPEND | LOCK_EX);</code></pre>
+      <p>
+        Sure it would be much more convenient if you will know the date when a letter was sent. </p><pre><code class="php">$date = date("h:i:sa [d.m.Y]");</code></pre>
+      <p>
+        The server can self check the time without scripts.<br>
+        Just write how you want to see time (which <a href="https://www.php.net/manual/en/function.date.php" target="_blank">format</a>).<br>
+        <br>
+        I have a little bit played with logs design too and the result must be something like this:<br>
+        <br>
+        -------------------------<br>
+        date: 02:01:13pm [25.03.2019]<br>
+        name: Max<br>
+        email: email@email.email<br>
+        subject: test 1<br>
+        message: Hi<br>
+        -------------------------<br>
+        <br>
+        <br>
+        -------------------------<br>
+        date: 02:08:35pm [25.04.2019]<br>
+        name: Max<br>
+        email: email@email.email<br>
+        subject: test 2<br>
+        message: Hi again<br>
+        -------------------------<br>
+        <br>
+        Probably it's all,<br>
+        we have created a contact form on php!<br>
+        <br>
+      </p>
+    	<a onclick="topButtonFunction();"><img src="../../images/icon_up_green.svg" class="topbutton"></a>
+    	<p><a href="../../blog.html">Back</a></p>
+    	<p><a href="../../index.html">Back to start</a></p>
+    </div>
+  </main>
+  <footer>
+	  <script src="../../js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="../../js/topButton.js"></script>
 		<script>
-				function swapStyleSheet(sheet){
-					document.getElementById('pagestyle').setAttribute('href', sheet);
-					localStorage.pagestyle = sheet;
-				}
+			function swapStyleSheet(sheet){
+				document.getElementById('pagestyle').setAttribute('href', sheet);
+				localStorage.pagestyle = sheet;
+			}
 
-				function buttonCheckTheme(){
-					if(localStorage.pagestyle === 'dark.css'){
-						swapStyleSheet('../../css/light.css');
-						localStorage.pagestyle = 'light.css';
-					}else{
-						swapStyleSheet('../../css/dark.css');
-						localStorage.pagestyle = 'dark.css';
-					}
+			function buttonCheckTheme(){
+				if(localStorage.pagestyle === 'dark.css'){
+					swapStyleSheet('../../css/light.css');
+					localStorage.pagestyle = 'light.css';
+				}else{
+					swapStyleSheet('../../css/dark.css');
+					localStorage.pagestyle = 'dark.css';
 				}
+			}
 
-				window.onload = function checkThemeOnLoad(){
-					if(localStorage.pagestyle === 'dark.css'){
-						swapStyleSheet('../../css/dark.css');
-						localStorage.pagestyle = 'dark.css';
-					}else{
-						swapStyleSheet('../../css/light.css');
-						localStorage.pagestyle = 'light.css';
-					}
-		}</script>
-    </footer>
+			window.onload = function checkThemeOnLoad(){
+				if(localStorage.pagestyle === 'dark.css'){
+					swapStyleSheet('../../css/dark.css');
+					localStorage.pagestyle = 'dark.css';
+				}else{
+					swapStyleSheet('../../css/light.css');
+					localStorage.pagestyle = 'light.css';
+				}
+      }
+    </script>
+  </footer>
 </html>

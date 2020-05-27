@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html type="en">
     <head>
         <title>Programming Blog - About Me</title>
@@ -27,26 +27,26 @@
         and in the same time I have practise in SoXes GmbH.
 		</p>
 <?php
-      $name = $_POST["name"];
-      $email = $_POST["email"];
-      $subject = $_POST["subject"];
-      $text = $_POST["text"];
-      $date = date("h:i:sa [d.m.Y]");
-      $ip = $_SERVER["REMOTE_ADDR"];
-      $info = $_SERVER['HTTP_USER_AGENT'];
-      $br = "\n";
-      $line = "-------------------------";
-
-      $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "date: " . $date.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "ip: " . $ip.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "browser info: " . $info.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "name: " . $name.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "email: " . $email.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "subject: " . $subject.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', "message: " . $text.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
-      $log = file_put_contents('logs.txt', $br.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $name = $_POST["name"];
+      // $email = $_POST["email"];
+      // $subject = $_POST["subject"];
+      // $text = $_POST["text"];
+      // $date = date("h:i:sa [d.m.Y]");
+      // $ip = $_SERVER["REMOTE_ADDR"];
+      // $info = $_SERVER['HTTP_USER_AGENT'];
+      // $br = "\n";
+      // $line = "-------------------------";
+      //
+      // $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', "date: " . $date.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', "ip: " . $ip.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', "browser info: " . $info.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', "name: " . $name.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', "email: " . $email.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', "subject: " . $subject.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', "message: " . $text.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', $line.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // $log = file_put_contents('logs.txt', $br.PHP_EOL , FILE_APPEND | LOCK_EX);
      ?>
 			<p><a href="index.html">Back to start</a></p>
         </main>
@@ -160,4 +160,4 @@
     </footer>
 </html>
 <!--https://caniuse.com/#search=css%20grid
-https://www.imgonline.com.ua/replace-white-background-with-transparent.php-->
+https://www.imgonline.com.ua/replace-white-background-with-transparent.php--> -->

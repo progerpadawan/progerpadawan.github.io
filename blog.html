@@ -1,82 +1,82 @@
 <!DOCTYPE html>
 <html type="en">
-    <head>
-        <title>Programming Blog - Blog</title>
-
+  <head>
+    <meta charset='utf-8'>
+    <title>Programming Blog - Blog</title>
 		<meta property="og:title" content="Blog about programming!">
-        <meta property="og:site_name" content="Progerpadawan">
-        <meta property="og:url" content="https://progerpadawan.github.io/blog.html">
-        <meta property="og:description" content="Blog articles">
-        <meta property="og:image" content="images/logo.png">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link id="pagestyle" rel="stylesheet" href="css/dark.css" />
+    <meta property="og:site_name" content="Progerpadawan">
+    <meta property="og:url" content="https://progerpadawan.github.io/blog.html">
+    <meta property="og:description" content="Blog articles">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link id="pagestyle" rel="stylesheet" href="css/dark.css" />
 		<link rel="shortcut icon" href="images/logo16x16e.png" type="image/x-icon">
-    </head>
-    <body>
-		<header>
-		<div class="logo_header">
-			<p>
-			<input type="image" src="images/logo.png" class="logo" alt="Logo" >
-			<h1>Programming Blog </h1>
-			</p>
-			<button class="change_color" onclick="buttonCheckTheme()">Change color</button>
-		</div>
-		<br>
-		<hr>
-           <div class="menu">
-		   <nav>
-                <ul>
-                    <li><a href="index.html">Main</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="aboutme.html">About Me</a></li>
-                </ul>
-            </nav>
-			</div>
-		<hr>
-        </header>
-        <main>
-    <div class="blogmain">
-      <h2>Content</h2>
-			<ul>
-					<li><a href="articles/eng/Blog0_Hi.html">00 Hi</a></li>
-					<li><a href="articles/eng/Blog1_Html.html">01 Blog website creating</a></li>
-					<li><a href="articles/eng/Blog2_VLAN.html">02 VLAN configuration</a></li>
-					<li><a href="articles/eng/Blog3_PHP.html">03 PHP contact form</a></li>
-					<li><a href="articles/eng/Blog4_DHCP.html">04 DHCP Server configuration</a></li>
-          <li><a href="articles/eng/Blog5_DNS.html">05 DNS Server configuration</a></li>
-					<li>comming soon</li>
-                </ul>
-		<!--<p><a href="#top"><img src="topicon.png" alt="top"></a></p>-->
-		<p><a href="index.html">Back to start</a></p>
-	</div>
-        </main>
-    </body>
+  </head>
+  <body>
+  	<header>
+  		<div class="logo_header">
+  			<p>
+  			<input type="image" src="images/logo.png" class="logo" alt="Logo" >
+  			<h1>Programming Blog </h1>
+  			</p>
+  			<button class="change_color" onclick="buttonCheckTheme()">Change color</button>
+  		</div>
+  		<br>
+  		<hr>
+      <div class="menu">
+  		  <nav>
+          <ul>
+            <li><a href="index.html">Main</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+          </ul>
+        </nav>
+  		</div>
+  		<hr>
+    </header>
+    <main>
+      <div class="blogmain">
+        <h2>Content</h2>
+    		  <ul>
+    			  <li><a href="articles/eng/Blog0_Hi.html">00 Hi</a></li>
+    				<li><a href="articles/eng/Blog1_Html.html">01 Blog website creating</a></li>
+    				<li><a href="articles/eng/Blog2_VLAN.html">02 VLAN configuration</a></li>
+    				<li><a href="articles/eng/Blog3_PHP.html">03 PHP contact form</a></li>
+    				<li><a href="articles/eng/Blog4_DHCP.html">04 DHCP Server configuration</a></li>
+            <li><a href="articles/eng/Blog5_DNS.html">05 DNS Server configuration</a></li>
+    				<li>comming soon</li>
+          </ul>
+    		<!--<p><a href="#top"><img src="topicon.png" alt="top"></a></p>-->
+    		<p><a href="index.html">Back to start</a></p>
+    	</div>
+    </main>
+  </body>
 	<footer>
-		<script>
-		function swapStyleSheet(sheet){
-			document.getElementById('pagestyle').setAttribute('href', sheet);
-			localStorage.pagestyle = sheet;
-		}
+    <script>
+  		function swapStyleSheet(sheet){
+  			document.getElementById('pagestyle').setAttribute('href', sheet);
+  			localStorage.pagestyle = sheet;
+  		}
 
-		function buttonCheckTheme(){
-			if(localStorage.pagestyle === 'dark.css'){
-				swapStyleSheet('css/light.css');
-				localStorage.pagestyle = 'light.css';
-			}else{
-				swapStyleSheet('css/dark.css');
-				localStorage.pagestyle = 'dark.css';
-			}
-		}
+  		function buttonCheckTheme(){
+  			if(localStorage.pagestyle === 'dark.css'){
+  				swapStyleSheet('css/light.css');
+  				localStorage.pagestyle = 'light.css';
+  			}else{
+  				swapStyleSheet('css/dark.css');
+  				localStorage.pagestyle = 'dark.css';
+  			}
+  		}
 
-		window.onload = function checkThemeOnLoad(){
-			if(localStorage.pagestyle === 'dark.css'){
-				swapStyleSheet('css/dark.css');
-				localStorage.pagestyle = 'dark.css';
-			}else{
-				swapStyleSheet('css/light.css');
-				localStorage.pagestyle = 'light.css';
-			}
-}</script>
+  		window.onload = function checkThemeOnLoad(){
+  			if(localStorage.pagestyle === 'dark.css'){
+  				swapStyleSheet('css/dark.css');
+  				localStorage.pagestyle = 'dark.css';
+  			}else{
+  				swapStyleSheet('css/light.css');
+  				localStorage.pagestyle = 'light.css';
+  			}
+      }
+    </script>
 	</footer>
 </html>
