@@ -1,86 +1,77 @@
 <!DOCTYPE html>
 <html type="ru">
-    <head>
-      <meta charset='utf-8'>
-        <title>Блог программиста - Главная</title>
-
-		<meta property="og:title" content="Блог программиста!">
-        <meta property="og:site_name" content="Progerpadawan">
-        <meta property="og:url" content="https://progerpadawan.github.io/rus">
-        <meta property="og:description" content="Домашняя страница">
-        <meta property="og:image" content="../images/logo.png">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link id="pagestyle" rel="stylesheet" href="../css/dark.css" />
+  <head>
+    <meta charset='utf-8'>
+    <title>Блог программиста - Главная</title>
+  	<meta property="og:title" content="Блог программиста!">
+    <meta property="og:site_name" content="Progerpadawan">
+    <meta property="og:url" content="https://progerpadawan.github.io/rus">
+    <meta property="og:description" content="Домашняя страница">
+    <meta property="og:image" content="../images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link id="pagestyle" rel="stylesheet" href="../css/dark.css" />
 		<link rel="shortcut icon" href="../images/logo16x16e.png" type="image/x-icon">
-    <style>
-    @media (max-width: 550px) {
-      .change_color{
-        top: -40px;
-      }
-    }
-    </style>
-    </head>
-    <br>
-    <body class="main">
-        <header>
-		<div class="logo_header">
-
-			<p>
-			<input type="image" src="../images/logo.png" class="logo" alt="Logo" >
-			<h1>Блог программиста</h1>
-			</p>
-			<button class="change_color" onclick="buttonCheckTheme()">Сменить фон</button>
-			<a class="change_language" href="../index.html">EN</a>
-		</div>
-		<br>
-		<hr>
-           <div class="menu">
-		   <nav>
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="blog.html">Блог</a></li>
-                    <li><a href="aboutme.html">Обо мне</a></li>
-                </ul>
-            </nav>
+    <!-- <style>@media (max-width: 550px) {.change_color{top: -40px;}}</style> -->
+  </head>
+  <br>
+  <body class="main">
+    <header>
+		  <div class="logo_header">
+  			<p>
+	  		<input type="image" src="../images/logo.png" class="logo" alt="Logo" >
+		  	<h1>Блог программиста</h1>
+			  </p>
+			  <button class="change_color" onclick="buttonCheckTheme()">Сменить фон</button>
+			  <a class="change_language" href="../index.html">EN</a>
+		  </div>
+		  <br>
+		  <hr>
+      <div class="menu">
+		    <nav>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="aboutme.html">Обо мне</a></li>
+          </ul>
+        </nav>
 			</div>
-		<hr>
-        </header>
-        <main>
+		  <hr>
+    </header>
+    <main>
 			<p><b>Добро пожаловать, аргонавты интернета,</b><br>
 			на мой сайт о программировании!<br>
 			Здесь я пишу что я узнал и выучил в данной сфере.<br>
 			</p>
 			<p>Хорошего дня!</p>
 			<p></p>
-        </main>
-
-    </body>
+    </main>
+  </body>
 	<footer>
-		<script>
-		function swapStyleSheet(sheet){
-			document.getElementById('pagestyle').setAttribute('href', sheet);
-			localStorage.pagestyle = sheet;
-		}
+    <script>
+  		function swapStyleSheet(sheet){
+  			document.getElementById('pagestyle').setAttribute('href', sheet);
+  			localStorage.pagestyle = sheet;
+  		}
 
-		function buttonCheckTheme(){
-			if(localStorage.pagestyle === 'dark.css'){
-				swapStyleSheet('../css/light.css');
-				localStorage.pagestyle = 'light.css';
-			}else{
-				swapStyleSheet('../css/dark.css');
-				localStorage.pagestyle = 'dark.css';
-			}
-		}
+  		function buttonCheckTheme(){
+  			if(localStorage.pagestyle === 'dark.css'){
+  				swapStyleSheet('../css/light.css');
+  				localStorage.pagestyle = 'light.css';
+  			}else{
+  				swapStyleSheet('../css/dark.css');
+  				localStorage.pagestyle = 'dark.css';
+  			}
+  		}
 
-		window.onload = function checkThemeOnLoad(){
-			if(localStorage.pagestyle === 'dark.css'){
-				swapStyleSheet('../css/dark.css');
-				localStorage.pagestyle = 'dark.css';
-			}else{
-				swapStyleSheet('../css/light.css');
-				localStorage.pagestyle = 'light.css';
-			}
-}</script>
+  		window.onload = function checkThemeOnLoad(){
+  			if(localStorage.pagestyle === 'dark.css'){
+  				swapStyleSheet('../css/dark.css');
+  				localStorage.pagestyle = 'dark.css';
+  			}else{
+  				swapStyleSheet('../css/light.css');
+  				localStorage.pagestyle = 'light.css';
+  			}
+      }
+    </script>
 	</footer>
 </html>
