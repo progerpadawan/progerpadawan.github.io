@@ -22,18 +22,17 @@ body{
     50% {
       background-color: black;
     }
-    }
     100% {
       background-color: #111122;
     }
   }
-  /* Chrome, Safari, Opera */
-   @-webkit-keyframes bgcolorchange {
-        0%   {background: #111122;}
-        10%   {background: #111122;}
-        50%  {background: black;}
-        100% {background: #111122;}
-}
+/* Chrome, Safari, Opera */
+  @-webkit-keyframes bgcolorchange {
+      0%   {background: #111122;}
+      10%   {background: #111122;}
+      50%  {background: black;}
+      100% {background: #111122;}
+  }
 
 nav ul {
     margin: 0;
@@ -54,7 +53,40 @@ nav li a {
 
 nav li a:hover {
 	color: #FFFFE0;
-    background-color: #c21525;
+  background-color: #c21525;
+}
+
+.articles_list{
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+
+#cs{
+  background-color: black;
+  height: 70px;
+  font-size: 18px;
+}
+#cs:hover{
+  background-color: black;
+}
+
+.articles_list a{
+  color: #FFFFE0;
+  text-decoration: none;
+  display: inline-table;
+  background-color: #171744;
+  width: 250px;
+  height: 100px;
+  margin: 10px;
+  text-align: center;
+  padding-top: 50px;
+  border: 4px solid #0e0e3a;
+}
+
+.articles_list a:hover{
+  background-color: #c21525;
 }
 
 a{
@@ -226,6 +258,7 @@ main {
   .change_language{
     top: -45px;
     /* left: 100px; */
+  }
 }
 @media (max-width: 360px) {
   .change_color{
@@ -235,4 +268,5 @@ main {
   .change_language{
     top: -35px;
   	/* left: 120px; */
+  }
 }
