@@ -8,11 +8,11 @@
         <meta property="og:description" content="№ 4 - настройка DHCP сервера">
         <meta property="og:image" content="../../images/logo.png">
 
-		    <link rel="stylesheet" href="../../css/atom-one-dark.css">
+		<link rel="stylesheet" href="../../css/atom-one-dark.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link id="pagestyle" rel="stylesheet" href="../../css/dark.css" />
-		    <link rel="stylesheet" href="../../css/atom-one-dark.css">
-		    <link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+		<link rel="stylesheet" href="../../css/atom-one-dark.css">
+		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
     </head>
     <body class="main">
         <header>
@@ -39,195 +39,43 @@
         <main>
     <div class="blogmain">
 
-    <h2>Статья - 05<br>
-      "Настройка DNS Сервера"</h2>
+    <h2>Статья - 06<br>
+      "Мобильный сайт"</h2>
 	<div class="date">
-		(22.10.2019)
-	</div>
-<br>
-    DNS(Domain Name System) сервер похож на интернет-телефонную книгу.<br>
-    Он управляет доменными именами и их IP-адресами.<br>
-    Это необходимо, потому что пользователю не удобно запоминать и вводить IP-адреса,<br>
-    чтобы зайти на Google или progerpadawan.habr.io.<br>
-    Если вы хотите перейти на Google.com, например, вам не нужно вводить 8.8.8.8 или 77.214.53.237,<br>
-    вы можете просто ввести "google.com".<br>
-<br>
-    Процесс DNS поиска и соединения:<br>
-    <ol>
-        <li>Пользователь (клиент) вызывает сайт.</li>
-        <li>Клиент отправляет запрос на DNS-сервер провайдера для получения IP.</li>
-        <li>Если DNS-сервер провайдера не предоставляет информацию о запрошенной<br>
-            странице в своем кэше, он отправляет запрос корневому DNS-серверу.</li>
-        <li>DNS-сервер ищет информацию на веб-сайте, отправляет IP и сохраняет все в кэш.</li>
-        <li>После этого соединение требует подтверждения 3 раза: 1 раз от клиента,<br>
-            затем от сервера и снова клиента.</li>
-        <li>Попадаем на сайт</li>
-    </ol>
-    <strong>Доменное имя</strong><br>
-    Имя домена может отображаться иерархически в виде древовидной структуры.<br>
-    Узлы и графы древовидной структуры также называются метками или уровнями.<br>
-    Полное доменное имя (FQDN = Fully Qualified Domain Name) получается в результате связывания этих уровней.<br>
-    Таким образом, комбинации домена верхнего уровня, домена второго уровня<br>
-    субдомена по адресам www.domaindiscount24.com, shop.spiegel.de и de.wikipedia.org.<br>
-    (см. пример: древовидная структура пространства имен домена)<br>
-<br>
-    <strong>Резольвер</strong><br>
-    Средство распознавания (англ. resolver) — это программа, которая получает информацию из системы доменных имен.<br>
-    Программа является своего рода переключателем между приложением и DNS.<br>
-    Средство распознавания интегрировано непосредственно в TCP/IP протокол <br>
-    и доступно в виде библиотеки программного обеспечения для <br><a href="https://en.wikipedia.org/wiki/Name_resolution_(computer_systems)" target="_blank">разрешения имен</a>.<br>
-    Распознаватель обращается с помощью функций "getHostByName" и "getHostByIp".<br>
-    Возвращает IP-адрес доменного имени или основное доменное имя IP-адреса.<br>
-    Для работы распознавателя ему необходим IP-адрес одного, а лучше двух DNS-серверов,<br>
-    которые необходимо указать в конфигурации IP.<br>
-    Как правило, IP-хост получает IP-адрес DNS-сервера через DHCP,<br>
-    или IP-адрес необходимо вводить вручную.<br>
-<br>
-    <strong>Хост-файл</strong><br>
-    Файл состоит из табличного списка IP-адресов и связанных имен хостов.<br>
-<br>
-    <strong>Зоны прямого просмотра(Forward Lookup Zones)</strong><br>
-    Предлогает путь от имени к адресу.<br>
-<br>
-    <strong>Обратный поиск(Reverse Lookup)</strong><br>
-    Зоны обратного просмотра являются необязательными и обеспечивают разрешение адреса к имени.<br>
-<br>
-    <strong>Способы проверки</strong><br>
-    Для того, чтобы иметь возможность проверить,<br>
-    был ли DNS-сервер успешно настроен и можно ли подключиться к серверу,<br>
-    вы можете использовать 3 различных инструмента:<br>
-    <ul>
-      <li>Сайты типа <a href="https://www.isitdownrightnow.com" target="_blank">"Isdown Rightnow"</a> проверяют, доступен ли сайт на данный момент.</li>
-      <li>Команда <a href="https://en.wikipedia.org/wiki/Ping_(networking_utility)" target="_blank">ping &lthost name></a>, в консоли(cmd), “пингует” страничку</li>
-      <li>Команда <a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank">tracert &lthost name></a>, в консоли(cmd)</li>
-    </ul>
-<br>
-    <h4>Linux DNS сервер</h4>
-    А теперь попробуем создать и настроить свой DNS сервер на базе Linux Debian Server <br>
-    На линукс DNS серверный сервис <a href="https://en.wikipedia.org/wiki/BIND" target="_blank">bind9</a><br>
-<br>
-    <div class="tip">
-    Вы можете использовать туже Виртуальную машину, из прошлой статьи про <a href="file:///C:/Users/mzelensky.SOXESLOCAL/Downloads/progerpadawan.github.io/articles/eng/Blog4_DHCP.html" target="_blank">DHCP</a>
+		(30.01.2021)
     </div>
-<br>
-    Обновляем списки пакетов<br>
-    и скачиваем bind9 <br>
-    <span style="background-color: #a9a9a9"> sudo apt-get update</span><br>
-    <span style="background-color: #a9a9a9"> sudo apt-get install bind9</span><br>
-    <input type="image" src="../../images/5/sau.png" onclick="window.open('../../images/5/sau.png')" height=auto width=30%/><br>
-<br>
-    Теперь к настройкам:<br>
-    Надо изменить файл named.conf.options в директории /etc/bind <br>
-    <span style="background-color: #a9a9a9"> sudo nano /etc/bind/named.conf.options</span><br>
-    с:<br>
-    <input type="image" src="../../images/5/conf1.png" onclick="window.open('../../images/5/conf1.png')" height=300 width=auto/><br>
-    на:<br>
-    <input type="image" src="../../images/5/conf2.png" onclick="window.open('../../images/5/conf2.png')" height=300 width=auto/><br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span> чтобы сохранить<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> чтобы выйти<br>
-<br>
-    Также нам нужно изменить named.conf.local в /etc/bind<br>
-    <span style="background-color: #a9a9a9"> sudo nano /etc/bind/named.conf.local</span><br>
-    В DNS-зонах прописаны соединения между доменами и IP-адресами.<br>
-    Теперь отрегулируем две зоны в соответствии с рисунком:<br>
-    <input type="image" src="../../images/5/conf3.png" onclick="window.open('../../images/5/conf3.png')" height=300 width=auto/><br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span>сохранить<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> выйти<br>
-<br>
-<br>
-  Сейчас мы создадим два файла с именами named.conf.local, используя дефолтные файлы связывания.<br>
-<br>
-    <strong>forward.local</strong><br>
-    <span style="background-color: #a9a9a9">sudo cp /etc/bind/db.local /etc/bind/forward.maxim.local</span><br>
-    <span style="background-color: #a9a9a9">sudo nano /etc/bind/forward.maxim.local</span><br>
-    <input type="image" src="../../images/5/conf5.png" onclick="window.open('../../images/5/conf5.png')" height=300 width=auto/><br>
-    Здесь необходимо ввести IP-адрес клиента и соответствующее доменное имя.<br>
-<br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span> сохранить<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> выйти<br>
-<br>
-    <strong>reverse.local</strong><br>
-    <span style="background-color: #a9a9a9">sudo cp /etc/bind/db.127 /etc/bind/reverse.maxim.local</span><br>
-    <span style="background-color: #a9a9a9">sudo nano /etc/bind/reverse.maxim.local</span><br>
-    <input type="image" src="../../images/5/conf4.png" onclick="window.open('../../images/5/conf4.png')" height=300 width=auto/><br>
-    Настройте IP-адрес клиента и связанное доменное именя, опираясь на картинку.
-<br>
-    <span style="background-color: #a9a9a9"> Ctrl S </span> сохранить<br>
-    <span style="background-color: #a9a9a9"> Ctrl X </span> выйти<br>
-<br>
-    Теперь для проверки конфигурации мы можем использовать:<br>
-    <span style="background-color: #a9a9a9"> sudo named-checkconf /etc/bind/named.conf.local</span><br>
-    <span style="background-color: #a9a9a9">  sudo named-checkzone maxim.local /etc/bind/forward.maxim.local</span><br>
-    <span style="background-color: #a9a9a9"> sudo named-checkzone maxim.local /etc/bind/reverse.maxim.local</span><br>
-    <input type="image" src="../../images/5/confcheck1.png" onclick="window.open('../../images/5/confcheck1.png')" height=150 width=auto/><br>
-<br>
-    Если не вылезло ошибок, все ок)<br>
-<br>
-    командой:<br>
-    <span style="background-color: #a9a9a9"> </span>sudo systemctl restart bind9<br>
-    перезагрузим наш Bind9 DNS сервис.<br>
-<br>
-    И проверяем статус:<br>
-    <span style="background-color: #a9a9a9">sudo systemctl status bind9 </span><br>
-    <input type="image" src="../../images/5/checkstatus.png" onclick="window.open('../../images/5/checkstatus.png')" height=300 width=auto/><br>
-<br>
-    <h4>Windows сервер</h4>
-    Во-первых, нам надо настроить IP:<br>
-    Открой Network&Internet Settings -> Ethernet2 -> network adapter options -> Internetprotokoll, Version 4 (TCP/IPv4)  <br>
-    <input type="image" src="../../images/5/winconf1.png" onclick="window.open('../../images/5/winconf1.png')" height=300 width=auto/><br>
-    <input type="image" src="../../images/5/winconf2.png" onclick="window.open('../../images/5/winconf2.png')" height=300 width=auto/><br>
-<br>
-    Сейчас открываем категорию Manage, "Add role and features"(Server-Role)<br>
-    <input type="image" src="../../images/5/winconf3.png" onclick="window.open('../../images/5/winconf3.png')" height=300 width=auto/><br>
-    <input type="image" src="../../images/5/winconf4.png" onclick="window.open('../../images/5/winconf4.png')" height=300 width=auto/><br>
-<br>
-     Ролью сервера мы выбираем DNS-сервер.<br>
-    (DHCP также должен быть установлен. Чтобы установить его, следует вернуться к нашей предыдущей документации.)<br>
-<br>
-    Теперь мы используем инструмент администрирования DNS Windows.<br>
-    Чтобы открыть его, мы используем ключ Windows и ищем «DNS».<br>
-    <input type="image" src="../../images/5/winconf5.png" onclick="window.open('../../images/5/winconf5.png')" height=300 width=auto/><br>
-<br>
-    В этом инструментарии мы настроим DNS.<br>
-    Нажмите на маленькие стрелки слева от папок, чтобы мы могли видеть все подпапки.<br>
-    Щелкните правой кнопкой мыши на “зону прямого просмотра”( Forward Lookup Zone) и выберите «Новая зона».<br>
-    <input type="image" src="../../images/5/winconf6.png" onclick="window.open('../../images/5/winconf6.png')" height=200 width=auto/><br>
-<br>
-    В этом окне введите "maxim.local"<br>
-    <input type="image" src="../../images/5/winconf7.png" onclick="window.open('../../images/5/winconf7.png')" height=300 width=auto/><br>
-<br>
-    Выберите «Первичная зона»(Primary Zone)<br>
-    <input type="image" src="../../images/5/winconf8.png" onclick="window.open('../../images/5/winconf8.png')" height=300 width=auto/><br>
-<br>
-    Теперь введите "maxim.local".<br>
-    Затем нажимайте «Далее», пока окно не закроется.<br>
-    <input type="image" src="../../images/5/winconf9.png" onclick="window.open('../../images/5/winconf9.png')" height=300 width=auto/><br>
-<br>
-    Теперь зона обратного просмотра настроена.<br>
-    Щелкните правой кнопкой мыши на “зону обратного просмотра”( Reverse Lookup Zone) и выберите «Новая зона».<br>
-    <input type="image" src="../../images/5/winconf10.png" onclick="window.open('../../images/5/winconf10.png')" height=300 width=auto/>
-    <input type="image" src="../../images/5/winconf11.png" onclick="window.open('../../images/5/winconf11.png')" height=300 width=auto/><br>
-    <input type="image" src="../../images/5/winconf12.png" onclick="window.open('../../images/5/winconf12.png')" height=300 width=auto/><br>
-<br>
-    Затем выберите «maxim.local», щелкните правой кнопкой мыши и выберите «Новый хост A» («Neuer Host A»).<br>
-    <input type="image" src="../../images/5/winconf13.png" onclick="window.open('../../images/5/winconf13.png')" height=300 width=auto/><br>
-<br>
-    После того, как новый хост (A) будет настроен, перед нами появится эта картинка.<br>
-    <input type="image" src="../../images/5/winconf14.png" onclick="window.open('../../images/5/winconf14.png')" height=300 width=auto/><br>
-<br>
-<br>
-    <h4>Windows клиент</h4>
-    Как и в случае с DHCP-клиентом, просто настройте IP, как на картинке:<br>
-    <input type="image" src="../../images/5/winconf15.png" onclick="window.open('../../images/5/winconf15.png')" height=300 width=auto/><br>
-<br>
-    <h4>Тестируем</h4>
-    Наконец, мы проверяем DNS-сервер на нашем клиенте, используя <a href="https://en.wikipedia.org/wiki/Nslookup" target="_blank">nslookup</a><br>
-    <span style="background-color: #a9a9a9"> nslookup dns.maxim.local </span><br>
-    можем проверить наше соединение.<br>
-    <input type="image" src="../../images/5/contest.png" onclick="window.open('../../images/5/contest.png')" height=400 width=auto/><br>
-<br>
-    Если это изображение соответствует вашему результату, вы правильно настроили DNS-сервер!<br>
-<br>
+    <p>
+        Я делал мобильную версию сайта xxx и столкнулся с парой моментов,<br>
+    про которые я хотел бы рассказать: <br>
+    Если в нескольких словах, то приложение отправляет и принимает реквесты на сервер, <br>
+    а дальше читает и пишет данные в бд. <br>
+    <br>
+    Для отправки реквестов я использую HTTP библиотеку <a href="https://developer.android.com/training/volley" target="_blank">volley</a>, она упрощает работу с реквестами и работает быстрее. <br>
+    Первый момент, с которым я столкнулся - volley кэширует запросы, что довольно мешает разработке. <br>
+    Так как несмотря на изменения в коде запроса, ответ остается старым и по неопытности можно подумать, <br>
+    что изменения не работают. <br>
+    Для этого приходится перезапускать виртуальный девайс (cold boot) или удалять приложение на физическом, <br>
+    либо можно отключить кэширование на время разработки.<br>
+    <pre><code class="java">request.setShouldCache(false);</code></pre>
+    Далее проблемы на стороне сайта. <br>
+    Сайт был создан лет 10 назад, написан на php и конечно внешний клиет не был запланирован. <br>
+    Поэтому, чтобы подружить андроид приложение с сайтом, пришлось изменить и сам сайт. <br>
+    <br>
+    Во-первых. 
+    Идентификация на php отправляет форму с логин/регистрационными данными. <br>
+    Далее php принимает форму, извлекает данные и работает с ними. <br>
+    Все дело в том, если в js есть объект FormData(), то java не умеет отправлять формы. <br>
+    Обмениваться можно json`ом, и через переменную $_POST получить отправляемые данные не получится <br>
+    И сайту приходится брать данные напрямую из файла php://input и преобраовывая в строку: <pre><code class="php">file_get_contents('php://input');</code></pre>
+    При идентификации php создает или возобновляет сессию cookie:PHPSESSID=xxx при помощи session_start(). <br>
+    Но андроид является безкуковым клиентом, то есть не генерирует куки. <br>
+    Поэтому приходится сохранять создаваемые на сервере куки в базу данных и пересылать между клиентом и сервером. <br>
+    <br>
+    Вот проблемы с которыми я столкнулся при создании xxx. <br>
+    Возможно некоторые решения не являются наилучшими, но они пришли в голову и я их задействовал. <br>
+    Спасибо за внимание. <br>
+    </p>
+
       <p><a href="../../rus/blog.html">Назад</a></p>
       <p><a href="../../rus/index.html">К началу</a></p>
       <a onclick="topButtonFunction();"><img src="../../images/icon_up.svg" class="topbutton"></a>

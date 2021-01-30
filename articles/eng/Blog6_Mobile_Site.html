@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html type="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>Programming Blog - Blog</title>
+		<meta property="og:title" content="Blog about programming!">
+    <meta property="og:site_name" content="Progerpadawan">
+    <meta property="og:url" content="https://progerpadawan.github.io/articles/eng/Blog5_DNS.html">
+    <meta property="og:description" content="№ 5 - configure a DNS Server">
+    <meta property="og:image" content="../../images/logo.png">
+		<link rel="stylesheet" href="../../css/atom-one-dark.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link id="pagestyle" rel="stylesheet" href="../../css/dark.css"/>
+		<link rel="shortcut icon" href="../../images/logo16x16e.png" type="image/x-icon">
+	</head>
+	<header>
+  	<div class="logo_header">
+	  	<p>
+		    <input type="image" src="../../images/logo.png" class="logo" alt="Logo" >
+		    <h1>Programming Blog </h1>
+		  </p>
+		  <button class="change_color" onclick="buttonCheckTheme()">Change color</button>
+	  </div>
+	  <br>
+	  <hr>
+	  <div class="menu">
+	    <nav>
+			  <ul>
+				  <li><a href="../../index.html">Main</a></li>
+				  <li><a href="../../blog.html">Blog</a></li>
+				  <li><a href="../../aboutme.html">About Me</a></li>
+			  </ul>
+		  </nav>
+		</div>
+	  <hr>
+	</header>
+  <main>
+    <div class="blogmain">
+      <h2>Article - 06<br>
+      "Mobile Site"</h2>
+	    <div class="date">
+		    (30.01.2021)
+	    </div>
+      <br>
+      <p>
+        I was doing a mobile version of the xxx website and ran into a couple of things, <br>
+        that I'd like to talk about: <br>
+        In a few words, the app sends and receives reqests to the server, <br>
+        and then reads and writes the data into the database. <br>
+        <br>
+        I use the HTTP library <a href="https://developer.android.com/training/volley" target="_blank">volley</a> to send the requests, it makes working with requests easier and faster. <br>
+        The first thing I encountered is that volley caches requests, which is quite a hindrance to development. <br>
+        Because despite the changes in the request code, the response is still the same and inexperience you might think, <br>
+        that the changes don't work. <br>
+        You have to restart the virtual device (cold boot) or remove the application on the physical one, <br>
+        or you can disable caching during development. <pre><code class="java">request.setShouldCache(false);</code></pre>
+        Next, the problems on the side of the site.<br>
+        The site was created about 10 years ago, written in php and of course the external client was not planned. <br>
+        Therefore, in order to make the android app work with the site, I had to change the site itself. <br>
+        <br>
+        First. <br>
+        Identity in php sends a form with login/registration data. <br>
+        Then php accepts the form, extracts the data and works with it. <br>
+        The thing is, if js has a FormData() object, then java doesn't know how to send forms. <br>
+        The exchange can be json`, and you can't get the data being sent through the $_POST variable <br>
+        And the site has to take the data directly from the php://input file and convert it to a string: <pre><code class="php">file_get_contents('php://input');</code></pre>
+        When identified, php creates or resumes a session cookie:PHPSESSID=xxx with session_start(). <br>
+        But android is a cookie-less client, that is, it does not generate cookies. <br>
+        So we have to save server-generated cookies into a database and send them between the client and the server. <br>
+        <br>
+        These are the problems I encountered in creating xxx. <br>
+        Perhaps some of the solutions are not the best, but they came to mind and I have implemented them. <br>
+        Thank you for your attention. <br>
+      </p>
+		  <a onclick="topButtonFunction();"><img src="../../images/icon_up_green.svg" class="topbutton"></a>
+  		<p><a href="../../blog.html">Back</a></p>
+  		<p><a href="../../index.html">Back to start</a></p>
+    </div>
+  </main>
+  <footer>
+  	<script src="../../js/highlight.pack.js"></script>
+	  <script>hljs.initHighlightingOnLoad();</script>
+	  <script src="../../js/topButton.js"></script>
+	  <script>
+	    function swapStyleSheet(sheet){
+				document.getElementById('pagestyle').setAttribute('href', sheet);
+				localStorage.pagestyle = sheet;
+			}
+
+			function buttonCheckTheme(){
+				if(localStorage.pagestyle === 'dark.css'){
+					swapStyleSheet('../../css/light.css');
+					localStorage.pagestyle = 'light.css';
+				}else{
+					swapStyleSheet('../../css/dark.css');
+					localStorage.pagestyle = 'dark.css';
+				}
+			}
+
+			window.onload = function checkThemeOnLoad(){
+				if(localStorage.pagestyle === 'dark.css'){
+					swapStyleSheet('../../css/dark.css');
+					localStorage.pagestyle = 'dark.css';
+				}else{
+					swapStyleSheet('../../css/light.css');
+					localStorage.pagestyle = 'light.css';
+				}
+      }
+    </script>
+  </footer>
+</html>
