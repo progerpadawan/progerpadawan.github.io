@@ -235,6 +235,7 @@ main {
   .change_language{
     top: -45px;
     /* left: 100px; */
+  }
 }
 @media (max-width: 360px) {
   .change_color{
@@ -244,4 +245,5 @@ main {
   .change_language{
     top: -35px;
   	/* left: 120px; */
+  }
 }
